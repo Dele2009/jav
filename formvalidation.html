@@ -18,6 +18,8 @@
 
             /* height: 100vh; */
             background: grey;
+            overflow-x: hidden;
+            padding-top: 90px ;
 
         }
 
@@ -25,6 +27,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            overflow-x: hidden;
         }
 
         .body {
@@ -33,6 +36,8 @@
             border-radius: 10%;
             width: fit-content;
             margin: auto;
+            border: 20px outset black;
+            box-shadow: 0px 5px 9px black;
 
         }
 
@@ -44,32 +49,37 @@
             font-weight: 500;
             font-size: 25px;
             background: rgb(224, 222, 222);
+            border: 4px outset black;
+            box-shadow: 2px 5px 1px black;
 
         }
 
         button:active {
-            transform: scale(0.9);
+            transform: scale(0.8);
         }
 
         button:hover {
-            background: hsl(0, 3%, 50%);
+            background: hsl(0, 3%, 60%);
         }
 
         #inpu {
             width: 100%;
             height: 75px;
-            font-size: 35px;
+            font-size: 40px;
             margin-bottom: 20px;
             border-radius: 20px;
             outline: none;
             padding-left: 10px;
             background: rgb(224, 222, 222);
+            border: 4px outset black;
+            box-shadow: 0px 5px 9px black;
         }
 
         .calcbtn {
             display: grid;
             grid-template-columns: repeat(4, auto);
             gap: 10px;
+            place-items: center;
         }
 
         .inpcal {
@@ -113,7 +123,8 @@
                 <button onclick="calculate()"><i class="fa-solid fa-equals"></i></button>
                 <button onclick="calcval('/')" id="contl"><i class="fa-solid fa-divide"></i></button>
 
-
+                <button onclick="calcval('(')">(</button>
+                <button onclick="calcval(')')">)</button>
                 <button onclick="clearval()" id="contl"><i class="fa-solid fa-trash-can"></i></button>
 
 
