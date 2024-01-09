@@ -102,11 +102,40 @@
         <!-- <button type="submit" onclick="formvalidation()">submit</button> -->
     </div>
 
+    <span id="may"></span>
+
 
 
 
 
     <script>
+        let flow=document.getElementById('may');
+    function times(){
+
+
+        let a = new Date().getMonth();
+        let b = new Date().getDay();
+        let c = new Date().getHours();
+        let d = new Date().getMinutes();
+        let e = new Date().getSeconds();
+        let f = new Date().getMilliseconds();
+        let g = new Date().getDay();
+        let h = new Date().getFullYear();
+        flow.innerHTML=a+"   "+b+"   "+c+"   "+d+"   "+e+"   "+f+"   "+g+"   "+h ;
+        console.log(a,b,c,d,e,f,g,h);
+    }
+    function timess(){
+        let kl = new Date("january, 26 2024").getTime();
+        let kr=new Date().getTime();
+        let dis=kl-kr;
+        let days= Math.round(dis/86400000);
+        let hrs=Math.trunc(dis/(86400000/24));
+        console.log(kl);
+        console.log(kr);
+        console.log(dis);
+        console.log(days+" "+hrs);
+    }
+        //setInterval(timess, 1000)
 
 
 
@@ -187,54 +216,7 @@
             else {
                 return true;
             }
-           
-            //     // else{
-        //     //     if(nameinp.value.match(name)){
-        //     //         form(allspan,'✔✔','green');
-        //     //         return true;
-        //     //     }
-        //     //     if(ageinp.value.match(age)){
-        //     //         form(allspan,'✔✔','green');
-        //     //         return true;
-        //     //     }
-        //     //     if(emailinp.value.match(email)){
-        //     //         form(allspan,'✔✔','green');
-        //     //         return true;
-        //     //     }
-        //     //     if(zipinp.value.length==5){
-        //     //         form(allspan,'✔✔','green');
-        //     //         return true;
-        //     //     }
-        //     //     if(zipinp.value.match(age)){
-        //     //         form(allspan,'✔✔','green');
-        //     //         return true;
-        //     //     }
-        //     //     else if(countryinp.value=='yes'){
-        //     //         form(allspan,'✔✔','green');
-        //     //         return true;
-        //     // }
-
-        //     // }
-        //     // else{
-        //     //     for(let i=0;i<allinp.length;i++){
-        //     //         allinp[i].style.outline='1px solid green'
-                   
-        //     //     }
-        //     //     for(let i=0;i<allspan.length;i++){
-        //     //         allspan[i].innerHTML=""
-        //     //     }
-        //     //     allinp.forEach(input =>{
-        //     //         input.style.outline='1px solid green';
-        //     //     })
-        //     //     allspan.forEach(span =>{
-        //     //         span.innerHTML="✔✔";
-        //     //         span.style.color='green'
-        //     //     })
-        //     //     countryinp.style.outline='1px solid green';
-        //     //     return true;
-               
-
-        //     // }
+      
         }
         function form(allspan,message,color){
             allspan.forEach(span =>{
@@ -251,61 +233,7 @@
 
 
 
-        // let jh='damn is a nice boy guy';
-
-        //jh.indexOf('damn');
-        // console.log(jh.slice('guy'));
-       
-
-
-
-
-       
-        // let guess=document.querySelector('#gues');
-        // let a,ans,b;
-       
-    
-        // guess.addEventListener('click', ()=>{
-
-        //     a=document.querySelector('#eveninp').value;
-        //     ans=document.querySelector('#ans');
-
-
-        //     if(a<60 || a>80 || isNaN(a)||!a){
-        //         mistake(ans,a)
-
-                    
-        //     }
-        //     else{
-        //         for(let b=2;b<3;b++){
-        //             if(a%b==1){
-                       
-        //                 ans.innerHTML=`Correct ${a}  is an odd number`;
-        //                 ans.style.color='green';
-        //                 console.log(a);
-        //                 console.log(b);
-        //                 break;
-                    
-        //             }
-        //         } 
-        //         if(a%b==0){
-        //             ans.innerHTML=`Wrong ${a} is not an old number, Its an even number`;
-        //             ans.style.color='red';
-        //             console.log(a);
-        //             console.log(b);
-             
-        //         }
-        //     }
-        // })
-        // function mistake(ans,a){
-           
-           
-        //     ans.innerHTML=`--Invalid input`;
-        //     ans.style.color='yellow';
-        //     console.log(a);
-        //     console.log(b);
-           
-        // }
+        
              
           
                
