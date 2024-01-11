@@ -142,23 +142,47 @@
            use carmel cases for
 
 
-//           math method
-//           Math.random(),
+           math method
+           Math.random(),
 
-//           loop
-//           for(let i =0; i<=10; i++){
-//             console.log(i)
-//           }
-
-
-//           for loop
-//           while loop
-//           do -- while loop
+           loop
+           for(let i =0; i<=10; i++){
+             console.log(i)
+           }
 
 
-//           for(let exercise=1; exercise<4;)
+           for loop
+           while loop
+           do -- while loop
 
-//            let dice=math.trunc(math.random()*6)+1;
-//            while(dice !==6){
-//             console.log()
-//            }
+
+           for(let exercise=1; exercise<4;)
+
+            let dice=math.trunc(math.random()*6)+1;
+            while(dice !==6){
+             console.log()
+            }
+
+            get time()--gives the number of milliseconds from january 1 1970 to present date or date provided
+            
+
+            scheduling 
+            setTimeout();
+            setInterval();
+            clearInterval();
+
+            let time=setTimeout(function tivh() {
+                   alert("welcome");
+                   time=setTimeout(tivh,1000);
+            },1000);
+
+            count down
+            1. set target time as variable
+            2. update time/countdown per second --- using setInterval(func code,delay)
+            3. declare function where to state the calculation for result
+            4. get current date and time string and convert to milliseconds --- using get Time() 
+            5. get the --amount-- of distyance between the count-down time and current time
+            6. convert the --amount-- to days, hours, minute and seconds
+            7. display ur result in your html 
+            8. when count-down is done use clearInterval()
+            9. call out/declarce ur function using setInterval()

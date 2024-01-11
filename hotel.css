@@ -1,0 +1,417 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Lemonada&family=Orbitron:wght@600&family=Tektur:wght@600&display=swap');
+
+/* font-family: 'Dancing Script', cursive;
+font-family: 'Lemonada', cursive;
+font-family: 'Orbitron', sans-serif;
+font-family: 'Tektur', sans-serif; */
+body {
+    background-image: url(HOTEL\ BACK-1\ \(2\).png);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    padding-top: 150px;
+    /*  */
+    overflow: hidden;
+}
+
+.hotel-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.589);
+    backdrop-filter: blur(30px);
+    position: fixed;
+    padding: 0px 0px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 99;
+}
+
+.logo {
+    display: flex;
+
+}
+
+.funk {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.funk ul {}
+
+.funk li {
+    list-style-type: none;
+    margin: 0px 20px;
+
+}
+
+.funk a {
+    color: rgb(96, 49, 11);
+    text-decoration: none;
+    font-family: 'Dancing Script', cursive;
+    font-weight: bold;
+
+}
+
+.funk li:hover a::after {
+    content: "";
+    background: hsl(27, 79%, 40%);
+    display: block;
+    /* width: 50px; */
+    padding: 1.5px 0px;
+    position: absolute;
+    /* transform: translate(0px,5px); */
+
+    animation: direct 250ms 0s 1 ease-in-out forwards;
+    /* transition: animation 1s 0s ease-in-out; */
+
+}
+
+@keyframes direct {
+    0% {
+        width: 0px;
+    }
+
+    25% {
+        width: 10px;
+    }
+
+    50% {
+        width: 20px;
+
+    }
+
+    75% {
+        width: 30px;
+    }
+
+    100% {
+        width: 50px;
+    }
+
+}
+
+.menu {
+    visibility: hidden;
+    position: absolute;
+}
+
+.hotel-descrip {
+    width: 50%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* margin: 20px auto; */
+    padding: 30px;
+    background-color: hsl(12, 59%, 10%);
+
+    border-radius: 100px 0px 100px 0px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.hotel-descrip h3 {
+    color: #333;
+    margin-bottom: 10px;
+    color: #ef923a;
+}
+
+.hotel-descrip h2 {
+    border-bottom: 2px solid #333;
+    padding-bottom: 10px;
+    color: #ef923a;
+}
+
+.hotel-descrip p {
+    line-height: 1.6;
+    color: #f03333;
+    margin-bottom: 15px;
+}
+
+.hotel-descrip ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    color: #f03333;
+}
+
+.hotel-descrip li {
+    padding-left: 20px;
+    position: relative;
+    margin-bottom: 8px;
+}
+
+.hotel-descrip li::before {
+    content: '\2022';
+    color: #ef923a;
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+}
+
+.hotel-descrip a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.hotel-descrip a:hover {
+    text-decoration: underline;
+}
+
+.max-out {
+    /* display: grid;
+    grid-template-columns: repeat(2, auto);
+    place-items: center; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 100px;
+
+}
+
+.forms {
+    width: fit-content;
+    background: rgba(255, 255, 255, 0);
+    backdrop-filter: blur(15px);
+    padding: 30px;
+    border-radius: 10px;
+}
+
+.forms input {
+    padding: 0px 0px 0px 10px;
+    height: 40px;
+    width: 400px;
+    background: ;
+    outline: none;
+    border-radius: 10px;
+    border: none;
+
+}
+
+.forms button {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ef923a;
+    font-weight: bold;
+    font-size: 17px;
+    border-radius: 10px;
+    border: none;
+    padding: 10px;
+    background: #460404;
+
+
+}
+
+.forms button img {
+    width: 25px;
+    aspect-ratio: 1;
+}
+
+.forms .inputs form {
+    display: grid;
+    grid-template-columns: repeat(1, auto);
+    gap: 20px;
+
+}
+
+.inputs #form1 {
+    /* visibility: hidden;
+    position:relative; */
+}
+
+.inps {
+    display: flex;
+    flex-direction: column;
+    color: #ef923a;
+}
+
+
+
+
+
+
+
+/* second form(#form2) display set to none */
+#form2 {
+    visibility: hidden;
+    position: absolute;
+}
+#form2 .dates{
+    display: grid;
+    grid-template-columns: repeat(2,auto);
+    gap: 50px;
+
+}
+#form2 .dates input{
+    width: 90%;
+}
+#form2 .dates select{
+    width: 100%;
+    height: 40px;
+    outline: none;
+    border-radius: 10px;
+    border: none;
+}
+#form2 .dates .inp{
+    height: 40px;
+    width: 100%;
+    background: white;
+    outline: none;
+    border-radius: 10px;
+    border: none;
+}
+#price-sys{
+    visibility: hidden;
+    position: relative;
+}
+
+
+
+
+
+/* LOADER ANIMATION CSS DON'T TOUCH .*/
+.load-man {
+    display: grid;
+    place-items: center;
+    visibility: hidden;
+    position: absolute;
+}
+
+.form1-loader {
+
+    width: 56px;
+    height: 26.9px;
+    background: radial-gradient(circle closest-side, #522d03 90%, #0000) 0% 50%,
+        radial-gradient(circle closest-side, #522d03 90%, #0000) 50% 50%,
+        radial-gradient(circle closest-side, #522d03 90%, #0000) 100% 50%;
+    background-size: calc(100%/3) 13.4px;
+    background-repeat: no-repeat;
+    animation: dots-loading 500ms infinite linear;
+    transform: translate(0px ,-180px);
+}
+
+@keyframes dots-loading {
+    20% {
+        background-position: 0% 0%, 50% 50%, 100% 50%;
+    }
+
+    40% {
+        background-position: 0% 100%, 50% 0%, 100% 50%;
+    }
+
+    60% {
+        background-position: 0% 50%, 50% 100%, 100% 0%;
+    }
+
+    80% {
+        background-position: 0% 50%, 50% 50%, 100% 100%;
+    }
+}
+
+
+
+/* .hotel-descrip h1 {
+    color: #333;
+}
+
+.hotel-descrip p {
+    line-height: 1.6;
+    color: #666;
+} */
+
+
+@media screen and (max-width:1200px) {
+    body{
+        overflow-y: auto;
+        padding-top: 60px;
+    }
+    .logo {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0px 20px;
+    }
+
+    .logo img {
+        width: 50px;
+        aspect-ratio: 1;
+    }
+
+    .logo button {
+        background: rgba(255, 255, 255, 0.215);
+        backdrop-filter: blur(5px);
+        border-radius: 10px;
+        padding: 0;
+
+        & img {
+            width: 50px;
+            aspect-ratio: 1;
+
+        }
+    }
+
+    .logo button:active {
+        transform: scale(0.9);
+    }
+
+
+    .menu {
+        visibility: visible;
+        position: relative;
+    }
+
+    .funk {
+        visibility: hidden;
+        position: absolute;
+        width: 0%;
+    }
+    .hotel-descrip{
+        width: fit-content;
+    }
+    .forms{
+        width: 100%;
+        
+    }
+    .inputs{
+        display: grid;
+        place-items: center;
+        width: 100%;
+        
+    }
+    .inputs form{
+        width: 100%;
+       
+    }
+    .forms input {
+        padding: 0px 0px 0px 10px;
+        height: 40px;
+        width:100%;
+        background: ;
+        outline: none;
+        border-radius: 10px;
+        border: none;
+    
+    }
+    /* .no-flow{
+      overflow-x: hidden;
+    } */
+
+    .max-out {
+        /* display: grid;
+        grid-template-columns: repeat(1, auto);
+        place-items: center; */
+        
+        padding: 60px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        
+        
+
+    }
+
+}

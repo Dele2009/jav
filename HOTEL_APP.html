@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="hotel.css">
+    <link rel="shortcut icon" href="hotel-svgrepo-com.svg" type="image/x-icon">
+    <title>Home-suites </title>
+</head>
+
+<body>
+    <main class="no-flow">
+        <nav class="hotel-nav">
+            <div class="logo">
+
+
+                <img src="hotel-svgrepo-com.svg">
+
+                <button class="menu">
+                    <img src="menu-03-svgrepo-com.svg">
+                </button>
+
+
+            </div>
+
+            <ul class="funk">
+                <li><a href="">DOC(1)</a></li>
+                <li><a href="">DOC(2)</a></li>
+                <li><a href="">PROJ(1)</a></li>
+                <li><a href="">PROJ(2)</a></li>
+                <li><a href="">PROJ(3)</a></li>
+                <li><a href="">PROJ(4)</a></li>
+            </ul>
+
+        </nav>
+        <section class="max-out">
+            <div class="hotel-descrip">
+                <h2>Welcome to Hotel Suites</h2>
+                <p>Experience luxury and comfort at Hotel Suites. Our hotel is designed to provide you with a relaxing
+                    and
+                    enjoyable stay. Whether you're traveling for business or leisure, we have everything you need to
+                    make
+                    your
+                    stay memorable.</p>
+
+                <h3>Our Features</h3>
+                <ul>
+                    <li>Spacious and Elegant Suites</li>
+                    <li>Fine Dining Restaurant</li>
+                    <li>Modern Fitness Center</li>
+                    <li>Conference Rooms</li>
+                    <li>Free Wi-Fi</li>
+                </ul>
+
+                <h3>Book Your Stay</h3>
+                <p>Ready to experience the luxury of Hotel Suites? Book your stay now and enjoy a blend of comfort and
+                    sophistication.</p>
+            </div>
+            <div class="forms">
+
+                <div class="inputs">
+
+                    <!-- Page original form -->
+                    <form action="" id="form1">
+                        <div class="inps">
+                            <label for="">First name*</label>
+
+                            <input type="text" placeholder="Johnson" required id="form-fname" oninput="formname()">
+                        </div>
+                        <div class="inps">
+                            <label for="">Last name*</label>
+                            <input type="text" placeholder="vancel" required id="form-lname" oninput="formlname()">
+                        </div>
+                        <div class="inps">
+                            <label for="">Email Address*</label>
+
+                            <input type="text" placeholder="johnvan@xxx.com" required id="form-email"
+                                oninput="formemail()">
+                        </div>
+                        <div class="inps">
+                            <label for="">Contact*</label>
+                            <input type="text" placeholder="+234-000-000-0000" required id="form-cont"
+                                oninput="formcontact()">
+                        </div>
+                        <div>
+
+                            <button type="button" id="form-info-sub">Proceed <img
+                                    src="arrow-direction-maps-3-svgrepo-com.svg" alt=""></button>
+                        </div>
+                    </form>
+
+                    <!-- second form to be actived in javascript -->
+                    <form action="" id="form2">
+                        <div class="dates">
+                            <div class="inps">
+                                <label for="">Arrival</label>
+
+                                <input type="date" required id="datearrive" class="f2inp" oninput="onchan()">
+                            </div>
+
+                            <div class="inps">
+                                <label for="">Departure</label>
+                                <input type="date" required id="datedepart" class="f2inp" oninput="oncha()">
+                            </div>
+                        </div>
+                        <div class="dates">
+                            <div class="inps">
+                                <label for="">Room type*</label>
+
+                                <select name="" id="Rooms">
+                                    <option value="" selected>SELECT OPTION</option>
+                                    <option value="10000">Regular</option>
+                                    <option value="20000">Duluxe</option>
+                                    <option value="35000">Presidential</option>
+                                    <!-- <option value="40000"></option>
+                            <option value="50000"></option> -->
+                                </select>
+                            </div>
+                            <div class="inps" id="price-sys">
+                                <label for="">Price*</label>
+                               <div class="inp" id="priceout"></div>
+                               
+                            </div>
+                        </div>
+                        <div>
+
+                            <button type="">next <img src="arrow-direction-maps-3-svgrepo-com.svg" alt="" id="hotelnext"></button>
+                        </div>
+                    </form>
+                    <div class="load-man" id="loadman">
+                        <div class="form1-loader"></div>
+                    </div>
+
+                </div>
+
+
+
+            </div>
+        </section>
+    </main>
+    <!-- <script>
+        let fname = document.getElementById("form-fname");
+        let proceed;
+
+        function formname() {
+            if (fname.value=="10") {
+                proceed = false;
+                fname.style.border= "2px solid red";
+                
+            }
+            else {
+                proceed = true;
+                fname.style.borderColor = "black";
+            }
+
+        }
+
+    </script> -->
+    <script src="hotel.js"></script>
+</body>
+
+</html>

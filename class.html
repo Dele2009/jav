@@ -6,10 +6,55 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="ligth.css" id="links">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Tektur:wght@600&display=swap" rel="stylesheet">
     <style>
+        *{
+            box-sizing: border-box;
+        }
+        body{
+            height: 100vh;
+            display: grid;
+            place-items: center;
+        }
         #gues:active{
             transform: scale(0.9);
 
+        }
+        #man{
+            display: grid;
+            place-items: center;
+            
+        }
+        .may{
+            font-size: 50px;
+            animation: colo 2s 0s infinite ease-in-out alternate;
+            
+
+        }
+        @keyframes colo{
+            from{
+                color: red;
+
+            }
+            to{
+                color: green;
+            }
+            /* 100%{
+                color: blue;
+            } */
+        }
+        .jay{
+            font-size: 60px;
+        }
+        
+        #may{
+           
+            font-weight: 700;
+            text-transform: uppercase;
+            font-family: 'Orbitron', sans-serif;
+            width: 100%;
         }
     </style>
 </head>
@@ -58,7 +103,7 @@
 
 
     <div >
-        <form action="" name="userform" onclick="return(formvalidation())">
+        <!-- <form action="" name="userform" onclick="return(formvalidation())">
             <table>
                 <tr>
                     <td>Name:</td>
@@ -99,43 +144,121 @@
             <button type="submit">submit</button>
           
         </form>
-        <!-- <button type="submit" onclick="formvalidation()">submit</button> -->
+        <button type="submit" onclick="formvalidation()">submit</button>
+    </div> -->
+   
+    <div id="man">
+        <span id="may" class="may jay"></span>
+        <input type="date" id="dateu" oninput=" cjk()">
     </div>
 
-    <span id="may"></span>
+   
 
 
 
 
 
     <script>
-        let flow=document.getElementById('may');
-    function times(){
+        function cjk(){
+            let gh=document.getElementById('dateu').value;
+        console.log(gh);
+        hj=new Date(`${gh}`)
+        console.log(hj);
+        }
+        
 
 
-        let a = new Date().getMonth();
-        let b = new Date().getDay();
-        let c = new Date().getHours();
-        let d = new Date().getMinutes();
-        let e = new Date().getSeconds();
-        let f = new Date().getMilliseconds();
-        let g = new Date().getDay();
-        let h = new Date().getFullYear();
-        flow.innerHTML=a+"   "+b+"   "+c+"   "+d+"   "+e+"   "+f+"   "+g+"   "+h ;
-        console.log(a,b,c,d,e,f,g,h);
-    }
-    function timess(){
-        let kl = new Date("january, 26 2024").getTime();
-        let kr=new Date().getTime();
-        let dis=kl-kr;
-        let days= Math.round(dis/86400000);
-        let hrs=Math.trunc(dis/(86400000/24));
-        console.log(kl);
-        console.log(kr);
-        console.log(dis);
-        console.log(days+" "+hrs);
-    }
-        //setInterval(timess, 1000)
+     
+
+      let birthday=new Date("jan, 11 2024 00:00 AM").getTime();
+      let display=document.getElementById("may");
+      
+      
+
+        function birthdaycalc(){
+            presentday=new Date().getTime();
+            birhdayDtan=birthday-presentday;
+            month=Math.floor(birhdayDtan/((1000*60*60*24)*30));
+            days=Math.floor(birhdayDtan%((1000*60*60*24)*30)/(1000*60*60*24));
+            hours=Math.floor((birhdayDtan%(1000*60*60*24))/(1000*60*60));
+            minute=Math.floor((birhdayDtan%(1000*60*60))/(1000*60));
+            seconds=Math.floor((birhdayDtan%(1000*60))/(1000));
+            if(birhdayDtan<1){
+                clearInterval(start);
+                display.innerHTML=`🎂✨✨🎁🎉🎈happy birthday🎈🎉🎁✨✨🎂`;
+                display.classList.add("may");
+                display.classList.remove('jay');
+            }else{
+                display.classList.remove('may');
+                display.classList.add("jay")
+                display.innerHTML=`${month}<span style="color:purple;">mths</span> :
+                                    ${days}<span style="color:purple;">days</span> : 
+                                    ${hours}<span style="color:purple;">hrs</span> : 
+                                    ${minute}<span style="color:purple;">m</span> : 
+                                    ${seconds}<span style="color:purple;">s</span>`;
+            }
+           
+        }
+        let start=setInterval(birthdaycalc,1000);
+
+
+
+
+
+
+
+
+
+
+    // let flow=document.getElementById('may');
+    // function times(){
+
+
+    //     let a = new Date().getMonth();
+    //     let b = new Date().getDay();
+    //     let c = new Date().getHours();
+    //     let d = new Date().getMinutes();
+    //     let e = new Date().getSeconds();
+    //     let f = new Date().getMilliseconds();
+    //     let g = new Date().getDay();
+    //     let h = new Date().getFullYear();
+    //     flow.innerHTML=a+"   "+b+"   "+c+"   "+d+"   "+e+"   "+f+"   "+g+"   "+h ;
+    //     console.log(a,b,c,d,e,f,g,h);
+    // }
+    // function timess(){
+    //     let kl = new Date("january, 26 2024").getTime();
+    //     let kr=new Date().getTime();
+    //     let dis=kl-kr;
+    //     let days= Math.round(dis/86400000);
+    //     let hrs=Math.trunc(dis/(86400000/24));
+    //     console.log(kl);
+    //     console.log(kr);
+    //     console.log(dis);
+    //     console.log(days+" "+hrs);
+    // }
+
+    // //setTimeout(()=>console.log("hgello boyyy"),5000);
+    // function showsomthing(name,age,height){
+    //     console.log(`my name is ${name}, i am ${age}years old, i am of height ${height}`)
+    // }
+    // //setInterval(showsomthing,2000,"dele",13,"5'7");
+    //     //setInterval(timess, 1000)
+
+    //     function printNumber(from,to){
+    //         //let current=from;
+    //         function go(){
+    //             alert(from);
+    //             if (from==to){
+    //                 clearInterval(timeid);
+    //             }
+    //             from++
+    //         }
+    //         //go();
+    //         let timeid=setInterval(go,1000);
+    //     }
+    //     printNumber(0,10);
+
+        
 
 
 
