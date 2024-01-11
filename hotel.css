@@ -11,7 +11,7 @@ body {
     background-size: cover;
     padding-top: 150px;
     /*  */
-    overflow: hidden;
+    
 }
 
 .hotel-nav {
@@ -67,6 +67,53 @@ body {
     animation: direct 250ms 0s 1 ease-in-out forwards;
     /* transition: animation 1s 0s ease-in-out; */
 
+}
+
+.funk2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.funk2 ul {}
+
+.funk2 li {
+    list-style-type: none;
+    margin: 30px 0px;
+
+}
+
+.funk2 a {
+    color: rgb(96, 49, 11);
+    text-decoration: none;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    font-size: 30px;
+
+}
+
+.funk2 li:hover a::after {
+    content: "";
+    background: hsl(27, 79%, 40%);
+    display: block;
+    /* width: 50px; */
+    padding: 1.5px 0px;
+    position: absolute;
+    /* transform: translate(0px,5px); */
+
+    animation: direct 250ms 0s 1 ease-in-out forwards;
+    /* transition: animation 1s 0s ease-in-out; */
+
+}
+.offcanvas{
+    background: rgba(255, 255, 255, 0) !important;
+    backdrop-filter: blur(18px) !important;
+    width: 60%;
+    & img{
+        width: 50px;
+        aspect-ratio: 1;
+    }
 }
 
 @keyframes direct {
@@ -242,6 +289,7 @@ body {
     display: grid;
     grid-template-columns: repeat(2,auto);
     gap: 50px;
+    place-items: center;
 
 }
 #form2 .dates input{
@@ -254,7 +302,19 @@ body {
     border-radius: 10px;
     border: none;
 }
-#form2 .dates .inp{
+.dates option{
+    padding: 10px 20px;
+    font-size: 20px;
+}
+.view{
+    visibility: hidden;
+    position: absolute;
+}
+.lag{
+    visibility: hidden;
+    position: relative;
+}
+.inp{
     height: 40px;
     width: 100%;
     background: white;
@@ -264,7 +324,72 @@ body {
 }
 #price-sys{
     visibility: hidden;
-    position: relative;
+    position: absolute;
+   padding: 30px;
+   font-weight: bold;
+   font-size: 20px;
+    display: grid;
+    place-items: center;
+   
+}
+#priceout{
+    /* display: grid;
+    place-items: center; */
+    height: fit-content;
+    width: 250px;
+    padding: 10px;
+    color:  #460404;
+}
+#hotelbook{
+    visibility: hidden;
+    position: absolute;
+}
+
+
+/* CARD STYLING */
+.card-container{
+    width: 100%;
+    display:grid;
+    place-items: center;
+    visibility: hidden;
+    position: absolute;
+}
+.card{
+    width: 60%;
+    background: white;
+    border-radius: 29px;
+    
+
+}
+.card-img{
+    width:100%;
+
+}
+.card-img img{
+  width: 100%;
+  border-radius: 20px 20px 0px 0px ;
+}
+.card-body{
+    width: fit-content;
+    padding: 20px;
+}
+.card-title{
+    color: #460404;
+}
+.card-text{
+    color: #b45a06;
+    font-size: 25px;
+    width: 100%;
+}
+.card-text-note{
+    color:#460404;
+    font-size: 20px;
+    
+}
+#countdown{
+    text-transform: uppercase;
+    font-family: 'Orbitron', sans-serif;
+    
 }
 
 
@@ -322,10 +447,10 @@ body {
 } */
 
 
-@media screen and (max-width:1200px) {
+@media screen and (max-width:768px) {
     body{
         overflow-y: auto;
-        padding-top: 60px;
+        padding-top: 150px;
     }
     .logo {
         width: 100%;
@@ -395,15 +520,9 @@ body {
         border: none;
     
     }
-    /* .no-flow{
-      overflow-x: hidden;
-    } */
+    
 
     .max-out {
-        /* display: grid;
-        grid-template-columns: repeat(1, auto);
-        place-items: center; */
-        
         padding: 60px;
         display: flex;
         justify-content: center;
@@ -412,6 +531,27 @@ body {
         
         
 
+    }
+    .card{
+        width: 80%;
+        background: white;
+        
+    
+    }
+    .card-text{
+        color: #b45a06;
+        font-size: 18px;
+        width: 100%;
+    }
+    .card-text-note{
+        color:#460404;
+        font-size: 15px;
+        
+    }
+    #countdown{
+        text-transform: capitalize;
+        font-family: 'Orbitron', sans-serif;
+        font-size: 23px;
     }
 
 }

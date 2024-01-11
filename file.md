@@ -186,3 +186,9 @@
             7. display ur result in your html 
             8. when count-down is done use clearInterval()
             9. call out/declarce ur function using setInterval()
+
+
+          Time practical application system 
+          countdown system 
+          total booking
+          digital time 
