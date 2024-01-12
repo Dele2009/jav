@@ -143,6 +143,8 @@ function loadsel(){
     }
     if(rooms.value==="2"){
         roomprice.style.visibility="visible";
+        roomprice.style.position="relative";
+
         datediv.style.visibility="hidden";
         datediv.style.position="absolute";
 
@@ -163,6 +165,9 @@ function loadsel(){
         datediv.style.position="relative";
         roomprice.style.visibility="hidden";
 
+        // hotelbook.style.width="80%";
+        // hotelnext.style.width="80%";
+
 
         hotelnext.style.visibility="visible";
         hotelnext.style.position="relative";
@@ -180,6 +185,8 @@ function loaddate(){
     if(duluxprices.value!="0"){
         datediv.style.visibility="visible";
         datediv.style.position="relative";
+        // hotelbook.style.width="80%";
+        // hotelnext.style.width="80%";
 
         hotelnext.style.visibility="visible";
         hotelnext.style.position="relative";
@@ -192,8 +199,8 @@ function loaddate(){
 
     }
     else{
-        datediv.style.visibility="hidden";
-        datediv.style.position="absolute";
+        datediv.style.visibility="visible";
+        datediv.style.position="relative";
 
         hotelnext.style.visibility="visible";
         hotelnext.style.position="relative";
@@ -203,6 +210,16 @@ function loaddate(){
         pricediv.style.position="absolute";
        
     }
+}
+
+function datechange(){
+    pricediv.style.visibility="hidden";
+    pricediv.style.position="absolute";
+    hotelnext.style.visibility="visible";
+    hotelnext.style.position="relative";
+    hotelbook.style.visibility="hidden";
+    hotelbook.style.position="absolute";
+    priceoutput.innerHTML="";
 }
 
  function loadform()  {
@@ -245,8 +262,11 @@ function loaddate(){
             hotelnext.style.position="absolute";
             hotelbook.style.visibility="visible";
             hotelbook.style.position="relative";
+            
             pricediv.style.visibility="visible";
             pricediv.style.position="relative";
+            datediv.style.visibility="visible";
+            datediv.style.position="relative";
             
 
         }
@@ -258,6 +278,9 @@ function loaddate(){
             hotelbook.style.position="relative";
             pricediv.style.visibility="visible";
             pricediv.style.position="relative";
+            datediv.style.visibility="visible";
+            datediv.style.position="relative";
+            // hotelbook.style.width="100%";
                                     
 
         }
@@ -269,7 +292,7 @@ function loaddate(){
  }
 
  
-
+ hotelnext.addEventListener("click",loadform)
 
 hotelbook.addEventListener("click",()=>{
     function starcount(){
@@ -281,6 +304,7 @@ hotelbook.addEventListener("click",()=>{
 
         daydis = finalstay - initialstay;
         day = Math.floor(daydis / (1000 * 60 * 60 * 24)).toString().padStart(2,"0");
+        
         hour=Math.floor((daydis%(1000 * 60 * 60 * 24))/(1000 * 60 * 60)).toString().padStart(2,"0");
         min=Math.floor((daydis%(1000 * 60 * 60 ))/(1000 * 60)).toString().padStart(2,"0");
         sec=Math.floor((daydis%(1000 * 60))/(1000)).toString().padStart(2,"0");
@@ -310,7 +334,7 @@ hotelbook.addEventListener("click",()=>{
     counters=setInterval(starcount,1000)
 
 })
-hotelnext.addEventListener("click",loadform)
+
 
 
 
