@@ -162,7 +162,10 @@
 
     & h1{
         font-weight: 600;
+        font-size: 33px;
         -webkit-text-stroke: 3px rgb(60, 59, 59);
+        color: white;
+        margin: auto;
     }
 }
 
