@@ -9,6 +9,7 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
+    position: relative;
     padding-top: 150px;
     /*  */
 
@@ -50,8 +51,9 @@ body {
 .funk a {
     color: rgb(96, 49, 11);
     text-decoration: none;
-    font-family: 'Dancing Script', cursive;
-    font-weight: bold;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: 600;
+    font-size: 20px;
 
 }
 

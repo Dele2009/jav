@@ -39,6 +39,7 @@ function formname() {
         proceed = false;
         fname.style.border = "1px solid red";
     }
+    
     else {
 
         fname.style.border = "none";
@@ -50,6 +51,8 @@ function formlname() {
         proceed = false;
         lname.style.border = "1px solid red";
     }
+    
+    
     else {
 
         lname.style.border = "none";
@@ -60,7 +63,9 @@ function formemail() {
         proceed = false;
         fmail.style.border = "1px solid red";
 
-    } else {
+    } 
+    
+    else {
 
         fmail.style.border = "none";
     }
@@ -69,7 +74,9 @@ function formcontact() {
     if (!fconta.value || !fconta.value.match(contactformat) || isNaN(fconta.value)) {
         proceed = false;
         fconta.style.border = "1px solid red";
-    } else {
+    } 
+    
+    else {
         fconta.style.border = "none";
 
     }
@@ -97,6 +104,7 @@ function loadershow(loading, stop) {
             formpagetwo.style.visibility = "visible";
             formpage.style.position = "absolute";
         }
+
         else {
 
             count++
@@ -132,6 +140,7 @@ fsubmit.addEventListener("click", () => {
         loader.style.visibility = "hidden";
         loader.style.position = "absolute";
     }
+
     else {
         formpage.style.visibility = "hidden";
         formpage.style.position = "relative";
@@ -183,6 +192,8 @@ function loadsel() {
 
         depart.value = "";
     }
+
+
     if (rooms.value === "2") {
         roomprice.style.visibility = "visible";
         roomprice.style.position = "relative";
@@ -202,6 +213,8 @@ function loadsel() {
 
 
     }
+
+
     else {
         datediv.style.visibility = "visible";
         datediv.style.position = "relative";
@@ -245,6 +258,8 @@ function loaddate() {
 
 
     }
+
+
     else {
         datediv.style.visibility = "visible";
         datediv.style.position = "relative";
@@ -285,13 +300,15 @@ function loadform() {
         priceoutput.innerHTML = "Error pls check inputs";
 
     }
+
     else if (rooms.value === "0") {
         rooms.style.border = "1px solid red";
         pricediv.style.visibility = "visible";
         pricediv.style.position = "relative";
         priceoutput.innerHTML = "Room type selection invalid";
     }
-    else if (day < 0 && day < -1) {
+
+    else if (day < 0) {
         priceoutput.innerHTML = "Date value invalid";
         depart.style.border = "1px solid red";
         hotelnext.style.visibility = "visible";
@@ -302,8 +319,9 @@ function loadform() {
         pricediv.style.position = "relative";
 
     }
-    else if (day <= 0 && rooms.value == "5000") {
-        priceoutput.innerHTML = `You have now chosen the regular residential suite since you'll be staying with us for a night your total bill is ${rooms.value}`;
+
+    else if (day < 1 && rooms.value === "5000") {
+        priceoutput.innerHTML = `You have now chosen the regular residential suite since you'll be staying with us for a night your total bill is &#8358;${rooms.value}`;
         hotelnext.style.visibility = "hidden";
         hotelnext.style.position = "absolute";
         hotelbook.style.visibility = "visible";
@@ -314,8 +332,9 @@ function loadform() {
         datediv.style.visibility = "visible";
         datediv.style.position = "relative";
     }
-    else if (day <= 0 && rooms.value == "2") {
-        priceoutput.innerHTML = `You have now chosen the Duluxe residential suite since you'll be staying with us for a night your total bill is ${duluxprices.value}`;
+
+    else if (day < 1 && rooms.value === "2") {
+        priceoutput.innerHTML = `You have now chosen the Duluxe residential suite since you'll be staying with us for a night your total bill is &#8358;${duluxprices.value}`;
         hotelnext.style.visibility = "hidden";
         hotelnext.style.position = "absolute";
         hotelbook.style.visibility = "visible";
@@ -335,7 +354,7 @@ function loadform() {
 
 
         if (rooms.value === "5000") {
-            priceoutput.innerHTML = `You have now chosen the regular residential suite since you'll be staying with us for ${day}days your total bill is ${rooms.value * day}`;
+            priceoutput.innerHTML = `You have now chosen the regular residential suite since you'll be staying with us for ${day}days your total bill is &#8358;${rooms.value * day}`;
             hotelnext.style.visibility = "hidden";
             hotelnext.style.position = "absolute";
             hotelbook.style.visibility = "visible";
@@ -349,7 +368,7 @@ function loadform() {
 
         }
         if (rooms.value === "2") {
-            priceoutput.innerHTML = `You have now chosen the Duluxe residential suite, since you'll be staying with us for ${day}days your total bill is ${duluxprices.value * day}`
+            priceoutput.innerHTML = `You have now chosen the Duluxe residential suite, since you'll be staying with us for ${day}days your total bill is &#8358;${duluxprices.value * day}`
             hotelnext.style.visibility = "hidden";
             hotelnext.style.position = "absolute";
             hotelbook.style.visibility = "visible";
@@ -373,7 +392,7 @@ function loadform() {
 hotelnext.addEventListener("click", loadform)
 
 hotelbook.addEventListener("click", () => {
-    function starcount() {
+    function startcountdown() {
         initialstay = +(new Date().getTime());
         console.log(initialstay);
         finalstay = +(new Date(`${depart.value}`).getTime());
@@ -406,7 +425,7 @@ hotelbook.addEventListener("click", () => {
 
 
     }
-    counters = setInterval(starcount, 1000)
+    counters = setInterval(startcountdown, 1000)
 
 })
 
