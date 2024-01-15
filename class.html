@@ -265,7 +265,7 @@
         let btnreset=document.getElementById("btnreset");
 
         let initializer=0;
-        let k;
+        let k,minout,secout;
 
         function starter(){
             initializer++
@@ -309,7 +309,7 @@
         })
         btnstop.addEventListener("click",()=>{
             clearInterval(k);
-            initializer=0;
+            
             btnreset.style.visibility="visible";
             btnreset.style.position="relative";
             btnpause.style.visibility="hidden";
@@ -324,6 +324,7 @@
 
         })
         btnreset.addEventListener("click",()=>{
+            initializer=0;
             mm.innerHTML="00";
             ss.innerHTML="00";
             btnreset.style.visibility="hidden";

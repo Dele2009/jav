@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="uber.css">
+    
+
+    <!-- BOOTSTRAP CSS FILE -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div class="area">
+        <ul class="circles">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+   
+     <!-- RESPONSIVE NAVBAR -->
+     <nav class="hotel-nav">
+        <div class="logo">
+
+
+            <img src="uber-svgrepo-com.svg">
+
+            <button class="menu" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcan">
+                <img src="menu-alt-2-svgrepo-com (1).svg">
+            </button>
+
+
+        </div>
+
+        <ul class="funk">
+            <li><a href="index.html">DOC(1)</a></li>
+            <li><a href="page2.html">DOC(2)</a></li>
+            <li><a href="page3.html">PROJ(1)</a></li>
+            <li><a href="page4.html">PROJ(2)</a></li>
+            <li><a href="page5.html">PROJ(3)</a></li>
+            <li><a href="HOTEL_APP.html">PROJ(4)</a></li>
+            <li><a href="uber.html">PROJ(5)</a></li>
+        </ul>
+
+    </nav>
+   
+
+    
+    <!-- OFFCANVAS MENU FOR SMALL SCREEN -->
+    <div class="offcanvas offcanvas-left m-0  h-100" id="offcan" aria-labelledby="offcanvasRightLabel">
+
+        <div class="offcanvas-header d-flex justify-content-between">
+            <img src="uber-svgrepo-com.svg">
+
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"
+                style="color: white;"></button>
+        </div>
+        <div class="offcanvas-body">
+            <ul class="funk2">
+                <li><a href="index.html">DOC(1)</a></li>
+                <li><a href="page2.html">DOC(2)</a></li>
+                <li><a href="page3.html">PROJ(1)</a></li>
+                <li><a href="page4.html">PROJ(2)</a></li>
+                <li><a href="page5.html">PROJ(3)</a></li>
+                <li><a href="HOTEL_APP.html">PROJ(4)</a></li>
+                <li><a href="uber.html">PROJ(5)</a></li>
+            </ul>
+
+
+
+        </div>
+
+
+
+
+
+
+
+    </div>
+    <section class="main">
+        <div class="background">
+            <div class="head">
+                <h1><img src="uber-svgrepo-com.svg"></h1>
+                <P>BOOK A RIDE NOW</P>
+            </div>
+            <div class="inputs">
+                <label for="">
+                    From
+                    <input type="text" id="from" oninput="fromvalidate()">
+                    <span id="fromerror"></span>
+                </label>
+                <label for="">
+                    To
+                    <input type="text" id="to" oninput="tovalidate()">
+                    <span id="toerror"></span> 
+                </label>
+
+
+
+            </div>
+            <div class="text">
+                <h4 id="confirmtext" style="color: green;text-align: center;">Input your destinations</h4>
+
+            </div>
+           
+            <div class="buttons">
+               
+                
+
+            </div>
+            <div class="stopinn">
+                <h1 id="time-display">
+                    <span id="min">00</span>
+                    <span class="blink">:</span>
+                    <span id="sec">00</span>
+                </h1>
+            </div>
+            <div class="text">
+                <h4 id="text" style="color: green;text-align: center;"></h4>
+
+            </div>
+           
+            
+            <div class="recipt">
+                <div class="spinner" id="spin"></div>
+                <table id="bill">
+                    <tr>
+                        <td>Base fare</td>
+                        <td id="base" class="price"></td>
+                    </tr>
+                    <tr>
+                        <td>Time fare</td>
+                        <td id="time" class="price"></td>
+                    </tr>
+                    <tr>
+                        <td>Initial Total</td>
+                        <td id="initot" class="price"></td>
+                    </tr>
+                    <tr>
+                        <td>Tax(10%)</td>
+                        <td id="tax" class="price"></td>
+                    </tr>
+                    <tr>
+                        <td>Payable amount</td>
+                        <td id="payable" class="price"></td>
+                    </tr>
+                </table>
+
+            </div>
+            <div class="buttons">
+                <div class="start-sec">
+                    <button id="btnproceed" style="color: white;background: green;">Next</button>
+                    
+                </div>
+                <div class="start-sec">
+                    <button id="btnstart" style="color: white;background: green;">Yes, start Ride</button>
+                    <button id="btncancel" style="color: white;background: red;">No, cancel ride</button>
+                </div>
+                <div class="ops">
+                    <div class="cops">
+                        <button id="btnpause" style="color: white;background:rgb(245, 169, 29);">Pause Ride</button>
+                        <button id="btncont" style="color: white;background: green;">Continue Ride</button>
+                    </div>
+
+                    <button id="btnstop" style="color: white;background: red;">Stop Ride</button>
+                </div>
+                <button id="btngenert" style="color: white;background: green;">Generate recipt</button>
+                <button id="btnreset" style="color: white;background: red;">Clear</button>
+            </div>
+        </div>
+    </section>
+
+    <script src="uber.js"></script>
+
+     <!-- BOOSTRAP JAVASCRIPT FILE -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
