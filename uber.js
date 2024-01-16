@@ -1,30 +1,30 @@
-let presentdesti = document.getElementById("from");
-let futuredesti = document.getElementById("to");
-let tripinfo = document.getElementById("text");
-let formerror = document.getElementById("fromerror");
-let toerror = document.getElementById("toerror");
-let minute = document.getElementById("min");
-let seconds = document.getElementById("sec");
+const presentdesti = document.getElementById("from");
+const futuredesti = document.getElementById("to");
+const tripinfo = document.getElementById("text");
+const formerror = document.getElementById("fromerror");
+const toerror = document.getElementById("toerror");
+const minute = document.getElementById("min");
+const seconds = document.getElementById("sec");
 
-let proceedBtn = document.getElementById("btnproceed");
-let startBtn = document.getElementById("btnstart");
-let cancelBtn = document.getElementById("btncancel");
-let confirminfo = document.getElementById("confirmtext");
-let pauseBtn = document.getElementById("btnpause");
-let contBtn = document.getElementById("btncont");
-let stopBtn = document.getElementById("btnstop");
-let genertBtn = document.getElementById("btngenert");
-let resetBtn = document.getElementById("btnreset");
-let showtime = document.getElementById("time-display");
-let spinner = document.getElementById("spin");
+const proceedBtn = document.getElementById("btnproceed");
+const startBtn = document.getElementById("btnstart");
+const cancelBtn = document.getElementById("btncancel");
+const confirminfo = document.getElementById("confirmtext");
+const pauseBtn = document.getElementById("btnpause");
+const contBtn = document.getElementById("btncont");
+const stopBtn = document.getElementById("btnstop");
+const genertBtn = document.getElementById("btngenert");
+const resetBtn = document.getElementById("btnreset");
+const showtime = document.getElementById("time-display");
+const spinner = document.getElementById("spin");
 
-let showreceipt = document.getElementById("bill");
-let receiptprices = document.querySelectorAll(".price");
+const showreceipt = document.getElementById("bill");
+const receiptprices = document.querySelectorAll(".price");
 
 
 
 let initiator = 0;
-let p, minout, secout;
+let p, minout, secout, base,timeprice,initotal,taxamount,totalpay
 
 function fromvalidate() {
     if (presentdesti.value === "") {
@@ -208,7 +208,7 @@ function loadershow(loading, stop) {
 
 
 genertBtn.addEventListener("click", () => {
-    
+
     loadershow(0, 5)
 })
 
