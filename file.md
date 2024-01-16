@@ -192,3 +192,12 @@
           countdown system 
           total booking
           digital time 
+
+
+          create element()
+          appendchild()
+          createtextnode()
+          insertbefore()
+          childnodes[]
+          document.getelementbyclassname()
+          this.parentnode/this.parentElement

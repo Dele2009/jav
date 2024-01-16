@@ -37,47 +37,51 @@ let proceed, daydis, day, hour, min, sec, initialstay, finalstay, counters;
 function formname() {
     if (!fname.value || fname.value.length > 15) {
         proceed = false;
-        fname.style.border = "1px solid red";
+        fname.style.border = "3px solid red";
     }
-    
+
     else {
 
         fname.style.border = "none";
+        proceed = true;
     }
 
 }
 function formlname() {
     if (!lname.value || lname.value.length > 15) {
         proceed = false;
-        lname.style.border = "1px solid red";
+        lname.style.border = "3px solid red";
     }
-    
-    
+
+
     else {
 
         lname.style.border = "none";
+        proceed = true;
     }
 }
 function formemail() {
     if (!fmail.value || !fmail.value.match(emailformat)) {
         proceed = false;
-        fmail.style.border = "1px solid red";
+        fmail.style.border = "3px solid red";
 
-    } 
-    
+    }
+
     else {
 
         fmail.style.border = "none";
+        proceed = true;
     }
 }
 function formcontact() {
     if (!fconta.value || !fconta.value.match(contactformat) || isNaN(fconta.value)) {
         proceed = false;
-        fconta.style.border = "1px solid red";
-    } 
-    
+        fconta.style.border = "3px solid red";
+    }
+
     else {
         fconta.style.border = "none";
+        proceed = true;
 
     }
 }
@@ -131,10 +135,14 @@ function loadershow(loading, stop) {
 
 //LOADER AND NEXT FORM INNITIATOR
 fsubmit.addEventListener("click", () => {
+    // formname();
+    // formlname();
+    // formemail();
+    // formcontact();
 
 
     //STATEMENT TO INITIATE OR DEACTIVATE LOADER SEQUENCE
-    if (!fname.value || !lname.value || !fmail.value || !fconta.value) {
+    if (!fname.value || !lname.value || !fmail.value || !fconta.value || proceed == false) {
         formpage.style.visibility = "visible";
         formpage.style.position = "relative";
         loader.style.visibility = "hidden";
@@ -429,6 +437,11 @@ hotelbook.addEventListener("click", () => {
         cardcont.style.visibility = "visible";
 
         formaway.style.display = "none";
+
+        if (daydis == 0) {
+            cardtext.innerHTML = `Dear ${fname.value} ${lname.value} we appreciate your patrontage,this is to notify you that you stay with us has come to an end, please kindly
+                            make your way to the reception if you are in need of futher assistance `;
+        }
 
 
 

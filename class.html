@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="ligth.css" id="links">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Tektur:wght@600&display=swap" rel="stylesheet">
@@ -13,11 +14,11 @@
         *{
             box-sizing: border-box;
         }
-        body{
+        /* body{
             height: 100vh;
             display: grid;
             place-items: center;
-        }
+        } */
         #gues:active{
             transform: scale(0.9);
 
@@ -219,7 +220,7 @@
     </style>
 
 
-    <div class="stop-watch">
+    <!-- <div class="stop-watch">
         <div class="stopinn">
         <h1 id="time-display">
             <span id="min">00</span>
@@ -246,6 +247,20 @@
 
         </div>
     </div>
+    </div> -->
+
+    <img src="HOTEL BACK-1 (2).png" alt="" id="img" style="position: relative;width: 60px;"><br>
+
+    <button onclick="startter()">start</button>
+    <button onclick="frame()">Stop</button>
+
+
+    <div>
+        
+        <i class="fa-solid" id="charge" style="font-size: 200px;"></i><br>
+        <button id="go">charge</button>
+        <button id="stop">unplug</button>
+
     </div>
 
    
@@ -255,6 +270,84 @@
 
 
     <script>
+
+        let charging=document.getElementById("charge");
+        let mover=document.getElementById("go");
+        let noer=document.getElementById("stop");
+        let m;
+        charging.innerHTML="&#xf244;"
+        let j=20
+        function chargingflow(){
+
+            if(j==100){
+                clearInterval(m);
+                charging.innerHTML="&#xf240;"
+            }
+            else{
+                j=j+20;
+            charging.innerHTML="&#xf244;"
+
+            setTimeout(()=>{
+                charging.innerHTML="&#xf243;"
+            },1000);
+            setTimeout(()=>{
+                charging.innerHTML="&#xf242;"
+            },2000);
+            setTimeout(()=>{
+                charging.innerHTML="&#xf241;"
+            },3000);
+            setTimeout(()=>{
+                charging.innerHTML="&#xf240;"
+            },4000)
+        }
+        } 
+        
+        
+        
+        mover.addEventListener("click",()=>{
+            chargingflow();
+            m=setInterval(chargingflow,5000)
+           
+        });
+
+        noer.addEventListener("click",()=>{ clearInterval(m) })
+
+
+
+
+
+
+       
+        let x=0;
+        let o=0
+        let car;
+        let img=document.getElementById("img");
+       
+
+        function startter(){
+            function start(){
+                x++
+                o++
+                img.style.left= x+"px";
+                img.style.width=o+"px";
+            }
+            car=setInterval(start,20)
+        }
+    
+        function frame(){
+            clearInterval(car);
+        }
+
+
+
+
+
+
+
+
+
+
+
 
         let mm=document.getElementById("min");
         let ss=document.getElementById("sec"); 
@@ -351,13 +444,13 @@
 
      
 
-      let birthday=new Date("jan, 16 2024 00:00 AM").getTime();
+      let birthday=new Date("jan, 18 2024 00:00 AM").getTime();
       let display=document.getElementById("may");
       
       
 
         function birthdaycalc(){
-            presentday=new Date().getTime();
+            presentday= new Date().getTime();
             birhdayDtan=birthday-presentday;
             month=Math.floor(birhdayDtan/((1000*60*60*24)*30));
             days=Math.floor(birhdayDtan%((1000*60*60*24)*30)/(1000*60*60*24));

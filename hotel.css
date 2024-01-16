@@ -362,8 +362,8 @@ body {
 
 .card {
     width: 40%;
-    background: rgba(242, 242, 242, 0.515) !important;
-    backdrop-filter: blur(20px) !important;
+    background: rgba(242, 242, 242, 0.627) !important;
+    backdrop-filter: blur(300px) !important;
     border-radius: 29px;
 
 

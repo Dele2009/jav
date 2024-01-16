@@ -1,10 +1,13 @@
 const presentdesti = document.getElementById("from");
 const futuredesti = document.getElementById("to");
+const inp1 = document.getElementById("inp1");
+const inp2 = document.getElementById("inp2");
 const tripinfo = document.getElementById("text");
 const formerror = document.getElementById("fromerror");
 const toerror = document.getElementById("toerror");
 const minute = document.getElementById("min");
 const seconds = document.getElementById("sec");
+const rideState = document.getElementById("ride-status");
 
 const proceedBtn = document.getElementById("btnproceed");
 const startBtn = document.getElementById("btnstart");
@@ -17,6 +20,7 @@ const genertBtn = document.getElementById("btngenert");
 const resetBtn = document.getElementById("btnreset");
 const showtime = document.getElementById("time-display");
 const spinner = document.getElementById("spin");
+const dotTime = document.getElementById("time-dot");
 
 const showreceipt = document.getElementById("bill");
 const receiptprices = document.querySelectorAll(".price");
@@ -24,17 +28,22 @@ const receiptprices = document.querySelectorAll(".price");
 
 
 let initiator = 0;
-let p, minout, secout, base,timeprice,initotal,taxamount,totalpay
+let p, minout, secout, base, timeprice, initotal, taxamount, totalpay, proceed1, proceed2;
+
+rideState.innerHTML = "BOOK A RIDE NOW";
 
 function fromvalidate() {
     if (presentdesti.value === "") {
         formerror.innerHTML = "";
+        proceed1 = false;
     }
     else if (!presentdesti.value || !isNaN(presentdesti.value)) {
         formerror.innerHTML = "Invalid input";
+        proceed1 = false;
     }
     else {
         formerror.innerHTML = "";
+        proceed1 = true;
 
     }
 }
@@ -42,23 +51,31 @@ function fromvalidate() {
 function tovalidate() {
     if (futuredesti.value === "") {
         formerror.innerHTML = "";
+        proceed2 = false;
     }
     if (!futuredesti.value || !isNaN(futuredesti.value)) {
         toerror.innerHTML = "Invalid input";
+        proceed2 = false;
     }
     else {
         toerror.innerHTML = "";
+        proceed2 = true;
 
     }
 }
 
 
 proceedBtn.addEventListener("click", () => {
-    if (futuredesti.value && presentdesti.value) {
+    if (futuredesti.value && presentdesti.value && proceed1 == true && proceed2 == true) {
         startBtn.style.visibility = "visible";
         startBtn.style.position = "relative";
         cancelBtn.style.visibility = "visible";
         cancelBtn.style.position = "relative";
+
+        inp1.style.visibility = "hidden";
+        inp1.style.position = "absolute";
+        inp2.style.visibility = "hidden";
+        inp2.style.position = "absolute";
 
         proceedBtn.style.visibility = "hidden";
         proceedBtn.style.position = "absolute";
@@ -67,6 +84,8 @@ proceedBtn.addEventListener("click", () => {
 
     }
     else {
+        fromvalidate();
+        tovalidate();
         confirminfo.innerHTML = "Input your destinations";
     }
 })
@@ -101,6 +120,8 @@ function tripGo() {
     showtime.style.visibility = "visible";
     showtime.style.position = "relative";
     confirminfo.innerHTML = "";
+    rideState.innerHTML = "RIDE IN PROGRESS";
+    dotTime.classList.add("blink");
     tripinfo.innerHTML = `You are now in transit from ${presentdesti.value} to ${futuredesti.value} `
 
 
@@ -116,6 +137,11 @@ cancelBtn.addEventListener("click", () => {
     cancelBtn.style.visibility = "hidden";
     cancelBtn.style.position = "absolute";
 
+    inp1.style.visibility = "visible";
+    inp1.style.position = "relative";
+    inp2.style.visibility = "visible";
+    inp2.style.position = "relative";
+
     proceedBtn.style.visibility = "visible";
     proceedBtn.style.position = "relative";
     futuredesti.value = "";
@@ -129,6 +155,7 @@ btnpause.addEventListener("click", () => {
     contBtn.style.position = "relative";
     pauseBtn.style.visibility = "hidden";
     pauseBtn.style.position = "absolute";
+    dotTime.classList.remove("blink");
     tripinfo.innerHTML = `You have paused your transit from ${presentdesti.value} to ${futuredesti.value} `
 
 })
@@ -139,6 +166,7 @@ contBtn.addEventListener("click", () => {
     contBtn.style.position = "absolute";
     pauseBtn.style.visibility = "visible";
     pauseBtn.style.position = "relative";
+    dotTime.classList.add("blink");
     tripinfo.innerHTML = `You are now in transit from ${presentdesti.value} to ${futuredesti.value} `;
 })
 
@@ -154,7 +182,9 @@ stopBtn.addEventListener("click", () => {
     stopBtn.style.position = "absolute";
     contBtn.style.visibility = "hidden";
     contBtn.style.position = "absolute";
+    dotTime.classList.remove("blink");
     tripinfo.innerHTML = `Your trip has come to an end`
+    rideState.innerHTML = "RIDE HAS ENDED";
 })
 
 
@@ -221,6 +251,11 @@ resetBtn.addEventListener("click", () => {
     cancelBtn.style.visibility = "hidden";
     cancelBtn.style.position = "absolute";
 
+    inp1.style.visibility = "visible";
+    inp1.style.position = "relative";
+    inp2.style.visibility = "visible";
+    inp2.style.position = "relative";
+
     proceedBtn.style.visibility = "visible";
     proceedBtn.style.position = "relative";
     futuredesti.value = "";
@@ -233,4 +268,5 @@ resetBtn.addEventListener("click", () => {
     showtime.style.visibility = "hidden";
     showtime.style.position = "absolute";
     tripinfo.innerHTML = "";
+    rideState.innerHTML = "BOOK A RIDE NOW";
 })
