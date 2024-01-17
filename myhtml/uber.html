@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="uber.css">
+    <link rel="stylesheet" href="../mycss/uber.css">
     <link rel="shortcut icon" href="uber-svgrepo-com.svg" type="image/x-icon">
 
 
@@ -40,10 +40,10 @@
         <div class="logo">
 
 
-            <img src="uber-svgrepo-com.svg">
+            <img src="../img/uber-svgrepo-com.svg">
 
             <button class="menu" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcan">
-                <img src="menu-alt-2-svgrepo-com (1).svg">
+                <img src="../img/menu-alt-2-svgrepo-com (1).svg">
             </button>
 
 
@@ -63,14 +63,14 @@
 
 
 
-    <!-- OFFCANVAS MENU FOR SMALL SCREEN -->
+    <!-- OFFCANVAS MENU FOR TABLET & MOBILE SCREEN -->
     <div class="offcanvas offcanvas-left m-0  h-100" id="offcan" aria-labelledby="offcanvasRightLabel">
 
         <div class="offcanvas-header d-flex justify-content-between">
-            <img src="uber-svgrepo-com.svg">
+            <img src="../img/uber-svgrepo-com.svg">
 
-            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"
-                style="color: white;"></button>
+            <button type="button" class="" data-bs-dismiss="offcanvas" aria-label="Close"
+                style="color: white;"><img src="../img/close-svgrepo-com.svg" alt=""></button>
         </div>
         <div class="offcanvas-body">
             <ul class="funk2">
@@ -94,29 +94,35 @@
 
 
     </div>
+
+
+    <!-- MAIN CONTENT -->
     <section class="main">
         <div class="background">
             <div class="head">
-                <h1><img src="uber-svgrepo-com.svg"></h1>
+                <h1><img src="../img/uber-svgrepo-com.svg"></h1>
                 <P id="ride-status"></P>
             </div>
             <div class="inputs">
                 <div class="inpps" id="inp1">
-                    <label for="" >
-                        From
-                        
-                       
+                    <label for="">
+                        From*
+
+
                     </label>
-                    <input type="text" id="from" oninput="fromvalidate()">
+                    <input type="text" id="from" oninput="fromvalidate()" >
+                    
                     <span id="fromerror"></span>
                 </div>
+
                 <div class="inpps" id="inp2">
-                    <label for="" >
-                        To
-                        
-                       
+                    <label for="">
+                        To*
+
+
                     </label>
-                    <input type="text" id="to" oninput="tovalidate()">
+                    <input type="text" id="to" oninput="tovalidate()" >
+                    
                     <span id="toerror"></span>
                 </div>
 
@@ -149,23 +155,23 @@
             <div class="recipt">
                 <div class="spinner" id="spin"></div>
                 <table id="bill">
-                    <tr>
+                    <tr class="tab-line rows ">
                         <td>Base fare</td>
                         <td id="base" class="price"></td>
                     </tr>
-                    <tr>
+                    <tr class="rows">
                         <td>Time fare</td>
                         <td id="time" class="price"></td>
                     </tr>
-                    <tr>
+                    <tr class="tab-line rows">
                         <td>Initial Total</td>
                         <td id="initot" class="price"></td>
                     </tr>
-                    <tr>
+                    <tr class="rows">
                         <td>Tax(10%)</td>
                         <td id="tax" class="price"></td>
                     </tr>
-                    <tr>
+                    <tr class="tab-line rows ">
                         <td>Payable amount</td>
                         <td id="payable" class="price"></td>
                     </tr>
@@ -173,32 +179,43 @@
 
             </div>
             <div class="buttons">
-                <div class="start-sec">
-                    <button id="btnproceed" style="color: white;background: green;">Next</button>
+                <div class="">
+                    <button id="btnproceed" style="color: white;background:rgb(48,183,21);">Next <img
+                            src="../img/arrow-sm-right-svgrepo-com.png" alt=""></button>
 
                 </div>
                 <div class="start-sec">
-                    <button id="btnstart" style="color: white;background: green;">Yes, start Ride</button>
-                    <button id="btncancel" style="color: white;background: red;">No, cancel ride</button>
+                    
+                    <button id="btncancel" style="color: white;background:rgb(48,183,21);">No, cancel <img
+                            src="../img/wrong-svgrepo-com.png" alt=""></button>
+                    <button id="btnstart" style="color: white;background:rgb(48,183,21);">Yes, start <img
+                                src="../img/yes-svgrepo-com.png" alt=""></button>
                 </div>
-                <div class="ops">
-                    <div class="cops">
-                        <button id="btnpause" style="color: white;background:rgb(245, 169, 29);">Pause Ride</button>
-                        <button id="btncont" style="color: white;background: green;">Continue Ride</button>
+                <div class="start-sec">
+                    <div class="ops">
+                        <div class="cops">
+                            <button id="btnpause" style="color: white;background:rgb(48,183,21)">Pause Ride <img src="../img/car-citroen-vehicle-3-svgrepo-com.png" alt=""></button>
+                            <button id="btncont" style="color: white;background: rgb(48,183,21)">Continue Ride <img src="../img/car-citroen-vehicle-2-svgrepo-com.png" alt=""></button>
+                        </div>
+
+                        <button id="btnstop" style="color: white;background:rgb(48,183,21)">Stop Ride <img src="../img/car-citroen-vehicle-velocity-svgrepo-com.png" alt=""></button>
                     </div>
-
-                    <button id="btnstop" style="color: white;background: red;">Stop Ride</button>
                 </div>
-                <button id="btngenert" style="color: white;background: green;">Generate receipt</button>
-                <button id="btnreset" style="color: white;background: red;">Clear</button>
+                <button id="btngenert" style="color: white;background: rgb(48,183,21)">Generate receipt <img src="../img/receipt-3-svgrepo-com.png" alt=""></button>
+                <button id="btnreset" style="color: white;background:rgb(48,183,21)">Clear <img src="../img/clear-all-svgrepo-com.png" alt=""></button>
             </div>
         </div>
     </section>
 
-    <script src="uber.js"></script>
+    <script src="../myjs/uber.js"></script>
 
     <!-- BOOSTRAP JAVASCRIPT FILE -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
+        integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>

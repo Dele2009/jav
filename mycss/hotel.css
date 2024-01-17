@@ -5,7 +5,7 @@ font-family: 'Lemonada', cursive;
 font-family: 'Orbitron', sans-serif;
 font-family: 'Tektur', sans-serif; */
 body {
-    background-image: url(HOTEL\ BACK-1\ \(2\).png);
+    background-image: url('../img/HOTEL\ BACK-1\ \(2\).png');
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;

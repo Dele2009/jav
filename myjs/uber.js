@@ -22,6 +22,7 @@ const showtime = document.getElementById("time-display");
 const spinner = document.getElementById("spin");
 const dotTime = document.getElementById("time-dot");
 
+
 const showreceipt = document.getElementById("bill");
 const receiptprices = document.querySelectorAll(".price");
 
@@ -33,11 +34,8 @@ let p, minout, secout, base, timeprice, initotal, taxamount, totalpay, proceed1,
 rideState.innerHTML = "BOOK A RIDE NOW";
 
 function fromvalidate() {
-    if (presentdesti.value === "") {
-        formerror.innerHTML = "";
-        proceed1 = false;
-    }
-    else if (!presentdesti.value || !isNaN(presentdesti.value)) {
+
+    if (!presentdesti.value || !isNaN(presentdesti.value)) {
         formerror.innerHTML = "Invalid input";
         proceed1 = false;
     }
@@ -49,10 +47,7 @@ function fromvalidate() {
 }
 
 function tovalidate() {
-    if (futuredesti.value === "") {
-        formerror.innerHTML = "";
-        proceed2 = false;
-    }
+
     if (!futuredesti.value || !isNaN(futuredesti.value)) {
         toerror.innerHTML = "Invalid input";
         proceed2 = false;
@@ -156,6 +151,7 @@ btnpause.addEventListener("click", () => {
     pauseBtn.style.visibility = "hidden";
     pauseBtn.style.position = "absolute";
     dotTime.classList.remove("blink");
+    rideState.innerHTML = "RIDE ON HOLD";
     tripinfo.innerHTML = `You have paused your transit from ${presentdesti.value} to ${futuredesti.value} `
 
 })
@@ -167,6 +163,7 @@ contBtn.addEventListener("click", () => {
     pauseBtn.style.visibility = "visible";
     pauseBtn.style.position = "relative";
     dotTime.classList.add("blink");
+    rideState.innerHTML = "RIDE IN PROGRESS";
     tripinfo.innerHTML = `You are now in transit from ${presentdesti.value} to ${futuredesti.value} `;
 })
 

@@ -3,9 +3,10 @@
     background-color: black;
     overflow-x: hidden;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  
+
 }
-.main{
+
+.main {
     display: grid;
     place-items: center;
 }
@@ -88,7 +89,7 @@
     background: grey;
     padding: 15px 25px;
     border-radius: 10px;
-   
+
 }
 
 .flowp #max .p:hover {
@@ -160,7 +161,7 @@
     position: absolute;
     padding: 10px;
 
-    & h1{
+    & h1 {
         font-weight: 600;
         font-size: 33px;
         -webkit-text-stroke: 3px rgb(60, 59, 59);
@@ -260,60 +261,32 @@
     color: white;
     padding: 50px;
 }
-.methods section{
+
+.methods section {
     margin-top: 60px;
 }
-.methods h2{
+
+.methods h2 {
     font-size: 40px;
-}
-.methods h3{
-    font-size: 37px;
-}    
-.methods h5{
-    font-size: 30px;
-    
-}
-.methods p{
-    font-size: 20px;
-}
-.methods header{
-    margin-top: 15%;
-   
-}
-
-/* .methods  {
-
-
-
-    text-align: center;
-    font-size: ;
-    color: white;
-
 }
 
 .methods h3 {
-    text-align: center;
-    font-size: ;
-    color: white;
-
+    font-size: 37px;
 }
 
 .methods h5 {
-    text-align: center;
-    font-size: ;
-    color: white;
+    font-size: 30px;
+
 }
 
 .methods p {
-    text-align: center;
-    font-size: ;
-    color: white;
-} */
+    font-size: 20px;
+}
 
+.methods header {
+    margin-top: 15%;
 
-
-
-
+}
 
 
 /* CAULATOR AND RITEMENT */
@@ -469,7 +442,7 @@
 
 /* GUESS MY NO */
 .kunlo {
-    background-image: url(bAC.jpg);
+    background-image: url(../img/bAC.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     animation: body 7s ease-in-out 0s infinite alternate;
@@ -479,11 +452,11 @@
 
 @keyframes body {
     from {
-        background-image: url(bAC.jpg);
+        background-image: url(../img/bAC.jpg);
     }
 
     to {
-        background-image: url(bac2.jpg);
+        background-image: url(../img/bac2.jpg);
     }
 }
 
@@ -508,7 +481,7 @@
 .h2d {
     text-align: center;
     color: rgb(33, 22, 127);
-   
+
 }
 
 .h3d {
@@ -574,7 +547,7 @@
 
 @keyframes invest {
     0% {
-        background-image: url(inves1.jfif);
+        background-image: url(../img/inves1.jfif);
         background-repeat: no-repeat;
         background-size: cover;
 
@@ -582,7 +555,7 @@
     }
 
     50% {
-        background-image: url(inves2.jfif);
+        background-image: url(../img/inves2.jfif);
         background-repeat: no-repeat;
         background-size: cover;
 
@@ -590,7 +563,7 @@
     }
 
     100% {
-        background-image: url(inves3.jfif);
+        background-image: url(../img/inves3.jfif);
         background-repeat: no-repeat;
         background-size: cover;
 
@@ -685,31 +658,36 @@ select {
     margin-top: 70px;
 
 }
-.lime{
-    margin-top:90px;
+
+.lime {
+    margin-top: 90px;
 }
-.lime input{
+
+.lime input {
     border-radius: 10px;
     padding: 8px 20px;
     margin: 10px 0px;
 
 
 }
-.lime select{
+
+.lime select {
     border-radius: 10px;
     padding: 6px 10px;
     margin: 10px 0px;
 }
-.lime button{
-    color:white;
-    background:  rgb(8, 87, 184);
-    border:none;
+
+.lime button {
+    color: white;
+    background: rgb(8, 87, 184);
+    border: none;
     border-radius: 10px;
     padding: 5px 15px;
     font-size: 23px;
 }
-.lime p{
-    color:  rgb(139, 175, 219);
+
+.lime p {
+    color: rgb(139, 175, 219);
     font-size: 20px;
 }
 
@@ -892,7 +870,7 @@ select {
     }
 
     .kunlo {
-        background-image: url(bAC.jpg);
+        background-image: url(../img/bAC.jpg);
         background-size: cover;
         background-repeat: no-repeat;
         animation: body 7s ease-in-out 0s infinite alternate;
@@ -904,6 +882,7 @@ select {
 
         border-radius: 1px;
     }
+
     .scopes {
         display: flex;
         justify-content: center;
@@ -912,75 +891,71 @@ select {
         padding: 50px;
         overflow-x: hidden;
     }
-    
-    /* .scopes section{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    } */
+
+
     .scopes h2 {
         margin: 30px 0px 0px 0px;
         text-align: center;
         color: white;
         font-size: 40px;
         text-transform: uppercase;
-          padding: 30px;
+        padding: 30px;
     }
-    
+
     .scopes h3 {
         margin: 50px 0px 0px 0px;
         text-align: center;
         color: rgb(255, 255, 255);
-          padding: 30px;
+        padding: 30px;
     }
-    
+
     .scopes p {
         font-size: 20px;
         color: white;
         margin: 30px 0px 0px 0px;
-          padding: 30px;
+        padding: 30px;
     }
-    
 
-    
+
+
     .scopes .ju {
         width: 90%;
-        
+
         margin: auto;
         overflow-x: auto;
-      
+
     }
-    
+
     .scopes .ju img {
         width: 300px;
-      
+
         margin-top: 20px;
         border-radius: 20px;
-       
+
     }
-    
+
     .loops {
         background: rgb(128, 128, 128);
         text-align: left;
         overflow-x: hidden;
-       
+
     }
-    
+
     .loops h2 {
         margin-top: 40px;
         color: rgb(237, 237, 237);
         font-size: 40px;
     }
-    
+
     .loops h3 {
         margin-top: 40px;
         color: white;
     }
-    
+
     .loops p {
         font-size: 20px;
     }
-    
+
     .loops ul {
         list-style: disc;
         font-size: 20px;
@@ -988,20 +963,21 @@ select {
         display: grid;
         place-items: center;
     }
+
     .loops .ju {
         width: 90%;
         margin: auto;
         overflow-x: auto;
-      
+
     }
-    
+
     .loops .ju img {
         width: 600px;
         margin-top: 20px;
         border-radius: 20px;
-       
+
     }
-    
+
     .methods {
         background: rgb(37, 37, 37);
         text-align: left;
@@ -1009,40 +985,47 @@ select {
         color: white;
         padding: 60px;
     }
-    .methods section{
+
+    .methods section {
         margin-top: 30px;
     }
-    .methods h2{
+
+    .methods h2 {
         font-size: 35px;
         text-align: center;
         width: 100%;
-        
+
     }
-    .methods h3{
+
+    .methods h3 {
         font-size: 30px;
     }
-    .methods h5{
+
+    .methods h5 {
         font-size: 20px;
     }
-    .methods p{
+
+    .methods p {
         font-size: 15px;
     }
-    .methods header{
+
+    .methods header {
         margin-top: 15%;
 
-       
+
     }
+
     .methods .ju {
         width: 90%;
         margin: auto;
         overflow-x: auto;
-      
+
     }
-    
+
     .methods .ju img {
         width: 600px;
         margin-top: 20px;
         border-radius: 20px;
-       
+
     }
 }

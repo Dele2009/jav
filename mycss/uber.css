@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Lemonada&family=Orbitron:wght@600&family=Tektur:wght@600&display=swap');
 
+
 /* font-family: 'Dancing Script', cursive;
 font-family: 'Lemonada', cursive;
 font-family: 'Orbitron', sans-serif;
@@ -14,7 +15,7 @@ font-family: 'Tektur', sans-serif; */
 }
 
 body {
-    background-image: url(car.jpg);
+    background-image: url('../img/car.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
@@ -31,7 +32,7 @@ body {
     position: fixed;
     width: 100%;
     height: 100vh;
-    
+
 }
 
 .circles {
@@ -220,7 +221,7 @@ body {
     align-items: center;
     width: 100%;
     background: rgb(249, 249, 249);
-    padding: 0px 0px;
+
     top: 0;
     left: 0;
     padding: 10px 20px;
@@ -313,14 +314,21 @@ body {
 
 .inputs {
     display: grid;
-    grid-template-columns: repeat(2, auto);
+    grid-template-columns: repeat(1, auto);
 
 }
-.inpps{
+
+
+
+
+
+
+.inpps {
     display: flex;
     flex-direction: column;
     width: fit-content;
     margin: 10px;
+
     & span {
         color: red;
         width: fit-content;
@@ -328,14 +336,15 @@ body {
 }
 
 label {
-    /* display: flex;
-    flex-direction: column; */
-   
-    width:fit-content;
+    display: flex;
+    flex-direction: column;
+
+    width: fit-content;
 
     color: green;
+    font-size: 20px;
 
-   
+
 }
 
 #confirmtext {
@@ -352,14 +361,14 @@ input {
     padding: 8px 0px 8px 6px;
     width: 100%;
     border-radius: 5px;
-    border: 1px solid black;
+    border: 2px solid rgb(48,183,21);
     outline: none;
 
 }
 
 input:focus {
-    border: 2px solid green;
-    box-shadow: 0px 0px 5px 1px rgb(54, 238, 54);
+    border: 2px solid rgb(48,183,21);
+    box-shadow: 0px 0px 5px 2px rgb(48,183,21);
 }
 
 .background {
@@ -419,18 +428,86 @@ input:focus {
 
 }
 
+
+
 .buttons button {
     padding: 10px 20px;
-    margin: 10px;
-    font-size: clamp(1rem, 10vw, 1rem);
-    border: 4px outset rgb(69, 59, 59);
+    margin: 0px 10px;
+    font-size: 20px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: bold;
+    border: none;
     border-radius: 10px;
-    box-shadow: 0px 0px 0px black inset;
+    box-shadow: 3px 3px 5px green;
+    display: flex;
+    align-items: center;
+
+
+    & img {
+        width: 35px;
+        transition: transform 200ms 0s ease-in-out;
+        aspect-ratio: 1;
+        margin-left: 8px;
+    }
 }
+
+.buttons #btnproceed {
+
+
+
+    & img {
+        width: 30px;
+        transition: transform 200ms 0s ease-in-out;
+        aspect-ratio: 1;
+    }
+}
+
+.buttons #btnproceed:hover {
+
+
+    & img {
+        transform: translateX(8px);
+    }
+}
+
+#btncancel img{
+    width: 25px;
+    aspect-ratio: 1;
+}
+#btnstart img{
+    width: 30px;
+    aspect-ratio: 1;
+}
+#btnreset  img{
+    width:25px;
+    aspect-ratio: 1;
+}
+
+
+
+
+
+.start-sec button {
+
+    transition: transform 800ms 0s ease-in-out;
+}
+
+.start-sec:hover button:not(:hover) {
+    transform: scale(0.8);
+
+}
+
+
+
+
+
+
 
 .buttons button:active {
     transform: scale(0.9);
+    box-shadow: 0px 0px 0px black;
 }
+
 
 #btnstart,
 #btncancel {
@@ -452,96 +529,128 @@ input:focus {
     place-items: center;
 }
 
-.recipt table {
-    border-radius: 90px;
+.recipt #bill {
+
+    padding: 0;
     font-size: clamp(1rem, 10vw, 1.5rem);
     visibility: hidden;
     position: absolute;
     margin: 20px 0px;
+    border: 5px solid rgb(48, 183, 21);
 }
 
-.recipt table,
-td {
-    border: 2px solid black;
-    border-collapse: collapse;
+.recipt .rows {
+    border: none;
+
     color: rgb(3, 78, 3);
 }
 
-td {
-    padding: 5px;
+.recipt .tab-line {
+    border: none;
+    background: rgb(48, 183, 21);
+    color: white !important;
+}
+
+.recipt .border-curve {
+    border-radius: 10px !important;
+}
+
+.recipt .border-curve-riv {
+    border-radius: 10px !important;
+}
+
+.recipt td {
+    padding: 10px;
 }
 
 @media screen and (max-width:1180px) {
     .background {
         width: fit-content;
     }
+
     .hotel-nav {
-        position: fixed;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        width: 100%;
-        background: rgb(249, 249, 249);
         padding: 0px;
-        top: 0;
-        left: 0;
-    
-        z-index: 100;
     }
-    
+
     .hotel-nav .funk {
         display: flex;
         visibility: hidden;
         position: absolute;
         width: 0;
-    
-    
-    
     }
-    .logo{
+
+    .logo {
         display: flex;
         justify-content: space-between;
         align-items: center;
         width: 100%;
         padding: 10px 10px;
     }
-    .logo button{
+
+    .logo button {
         background: none;
         border: none;
     }
-    .menu{
+
+    .menu {
         visibility: visible;
         position: relative;
     }
-    
-    .funk li {
-        list-style: none;
-        margin: 0px 20px;
-    }
-    
-    .funk a {
-        color: rgb(29, 163, 29);
-        text-decoration: none;
-    }
+
     .funk2 li {
         list-style: none;
         margin: 20px 0px;
-        font-size: 20px;
+        font-size: 25px;
     }
-    
+
     .funk2 a {
         color: rgb(29, 163, 29);
         text-decoration: none;
     }
-    .offcanvas{
+
+    .offcanvas {
         visibility: visible;
         position: relative;
         width: 60%;
     }
+
+    .offcanvas-header button {
+        background: none;
+        border: none;
+    }
+
+    .offcanvas-header button img {
+        width: 30px;
+        aspect-ratio: 1;
+    }
 }
 
-@media screen and (max-width:430px){
-.main{
-    padding: 0px 20px;
-}
+@media screen and (max-width:595px) {
+    .main {
+        padding: 0px;
+    }
+
+    .background {
+
+        padding: 30px 0px;
+    }
+
+    .buttons button {
+
+
+
+        & img {
+            width: 20px;
+            aspect-ratio: 1;
+        }
+    }
+
+    .buttons button {
+        font-size: 15px;
+    }
+
+    .recipt {
+        padding: 0px 15px;
+    }
+
 }
