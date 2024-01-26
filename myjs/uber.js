@@ -33,6 +33,7 @@ let p, minout, secout, base, timeprice, initotal, taxamount, totalpay, proceed1,
 
 rideState.innerHTML = "BOOK A RIDE NOW";
 
+// PRESENT DESTINATION INPUT VALIDATION
 function fromvalidate() {
 
     if (!presentdesti.value || !isNaN(presentdesti.value)) {
@@ -46,6 +47,7 @@ function fromvalidate() {
     }
 }
 
+// ONGOING DESTINATION INPUT VALIDATION
 function tovalidate() {
 
     if (!futuredesti.value || !isNaN(futuredesti.value)) {
@@ -60,7 +62,9 @@ function tovalidate() {
 }
 
 
+//NEXT BUTTON INITIALIZER
 proceedBtn.addEventListener("click", () => {
+    //VALIDATION TO CHECK IF ALL TRUE CONDITIONS ARE MET IN ORDER TO PROCEED 
     if (futuredesti.value && presentdesti.value && proceed1 == true && proceed2 == true) {
         startBtn.style.visibility = "visible";
         startBtn.style.position = "relative";
@@ -78,6 +82,8 @@ proceedBtn.addEventListener("click", () => {
 
 
     }
+
+    //CHECK IF ALL PROCEEDING CONDITIONS ARE TRUE AND DENIES PROCEEDING
     else {
         fromvalidate();
         tovalidate();
@@ -90,7 +96,7 @@ proceedBtn.addEventListener("click", () => {
 
 
 
-
+//TIME COUNTER INITIALIZER AND DISPLAY
 function countstarter() {
     initiator++
     minout = parseInt(initiator / 60).toString().padStart(2, "0");
@@ -102,7 +108,10 @@ function countstarter() {
 
 }
 
+
+//TRIP STARTER FUNCTION
 function tripGo() {
+    // P VARIABLE UPDATE THE TIME COUNTER WITH AN INTERVAL
     p = setInterval(countstarter, 1000);
     startBtn.style.visibility = "hidden";
     startBtn.style.position = "absolute";
@@ -122,10 +131,10 @@ function tripGo() {
 
 }
 
-
+// START TRIP BUTTON EVENT-LISTENER(ALSO INVOKES tripGo)
 startBtn.addEventListener("click", tripGo);
 
-
+//FUNCTION TO CANCEL TRIP AND RETURN TO INITIAL PROCEED SECTION
 cancelBtn.addEventListener("click", () => {
     startBtn.style.visibility = "hidden";
     startBtn.style.position = "absolute";
@@ -144,6 +153,8 @@ cancelBtn.addEventListener("click", () => {
     confirminfo.innerHTML = "Input your destinations";
 })
 
+
+//FUCTION TO PAUSE TIMER AND TRIP ACTIVITIES
 btnpause.addEventListener("click", () => {
     clearInterval(p);
     contBtn.style.visibility = "visible";
@@ -156,6 +167,8 @@ btnpause.addEventListener("click", () => {
 
 })
 
+
+//FUCTION TO CONTINUE TIMER AND TRIP ACTIVITIES
 contBtn.addEventListener("click", () => {
     p = setInterval(countstarter, 1000);
     contBtn.style.visibility = "hidden";
@@ -168,6 +181,7 @@ contBtn.addEventListener("click", () => {
 })
 
 
+//TRIP ENDER FUNCTION
 stopBtn.addEventListener("click", () => {
     clearInterval(p);
 
@@ -185,6 +199,36 @@ stopBtn.addEventListener("click", () => {
 })
 
 
+function showspinner() {
+    spinner.style.visibility = "visible";
+    spinner.style.position = "relative";
+}
+
+function Hidespinner() {
+    spinner.style.visibility = "hidden";
+    spinner.style.position = "absolute";
+}
+
+function calcualatefair() {
+    base = 1000;
+    minout = +(minout)
+    secout = +(secout)
+    timeprice = Math.round((minout + (secout / 60)) * 100);
+    initotal = base + timeprice;
+    taxamount = Math.round(initotal * 0.10);
+    totalpay = initotal + taxamount;
+
+
+    receiptprices.forEach(receiptprices => {
+        if (receiptprices.id == "base") receiptprices.innerHTML = `&#8358;${base}`;
+        else if (receiptprices.id == "time") receiptprices.innerHTML = `&#8358;${timeprice}`;
+        else if (receiptprices.id == "initot") receiptprices.innerHTML = `&#8358;${initotal}`;
+        else if (receiptprices.id == "tax") receiptprices.innerHTML = `&#8358;${taxamount}`;
+        else if (receiptprices.id == "payable") receiptprices.innerHTML = `&#8358;${totalpay}`;
+    })
+}
+
+
 function loadershow(loading, stop) {
     let count = loading;
 
@@ -198,39 +242,17 @@ function loadershow(loading, stop) {
             genertBtn.style.position = "absolute";
             resetBtn.style.visibility = "visible";
             resetBtn.style.position = "relative";
-            spinner.style.visibility = "hidden";
-            spinner.style.position = "absolute";
 
-            base = 1000;
-            minout = +(minout)
-            secout = +(secout)
-            timeprice = Math.round((minout + (secout / 60)) * 100);
-            initotal = base + timeprice;
-            taxamount = Math.round(initotal * 0.10);
-            totalpay = initotal + taxamount;
-
-
-            receiptprices.forEach(receiptprices => {
-                if (receiptprices.id == "base") receiptprices.innerHTML = `&#8358;${base}`;
-                else if (receiptprices.id == "time") receiptprices.innerHTML = `&#8358;${timeprice}`;
-                else if (receiptprices.id == "initot") receiptprices.innerHTML = `&#8358;${initotal}`;
-                else if (receiptprices.id == "tax") receiptprices.innerHTML = `&#8358;${taxamount}`;
-                else if (receiptprices.id == "payable") receiptprices.innerHTML = `&#8358;${totalpay}`;
-
-            })
-
+            Hidespinner();
+            calcualatefair();
         }
 
         else {
-
             count++
-
-            spinner.style.visibility = "visible";
-            spinner.style.position = "relative";
+            showspinner();
         }
     }
-    let goload = setInterval(loaderinin, 1000)
-
+    let goload = setInterval(loaderinin, 1000);
 }
 
 

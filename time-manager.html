@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time-management</title>
+    <link rel="stylesheet" href="./mycss/time-manager.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Tektur:wght@600&display=swap"
+        rel="stylesheet">
+    <style>
+       
+    </style>
+</head>
+
+
+<body>
+
+
+    <nav class="side-bar">
+        <div>
+            <a href="index.html"><span>DOCUMENTATION (1)</span></a>
+            <a href="page2.html"><span>DOCUMENTATION (2)</span></a>
+            <a href="page3.html"><span>OPERATORS&<br>STATEMENTS PROJECT</span></a>
+            <a href="page4.html"><span>SIMPLE CALCULATOR&<br>RETIREMENT CALCULATOR</span></a>
+            <a href="page5.html"><span>NUMBER GAME&<br>INVESTMENT CALCULATOR&<br>PRIME NUMBER CHECKER&<br>LOAN
+                    CALCULATOR</span></a>
+            <a href="HOTEL_APP.html"><span>HOTEL BOOKING APP</span></a>
+            <a href="uber.html"><span>UBER APP</span></a>
+            <a href="time-manager.html"><span>TIME MANAGEMENT APP</span></a>
+        </div>
+    </nav>
+    <div class="main-div">
+        <div class="container-list">
+            <div class="main-content">
+                <div
+                    style="display: flex;height: 50px;width: 100%; align-items: center;justify-content: center;border: 2px solid orange; border-radius: 20px;">
+                    <label for="items" style="display: flex;flex-direction: column;width: 50%;height:100%;">
+
+                        <input type="text" id="items"
+                            style="font-size: 20px; width: 100%;height:100%;border:none;padding: 10px 0px 10px 20px;border-radius: 20px 0px 0px 20px;"
+                            placeholder="Enter task be done" />
+
+                    </label>
+                    <label for="time"
+                        style="display: flex;flex-direction: row;width:50%;height:100%;border-left:1px solid orange;border-radius: 0px 20px 20px 0px;">
+
+                        <input type="number" id="time-start"
+                            style="font-size: 20px; width: 50%;height:100%;padding: 10px 0px 10px 20px;border-radius: 0px 0px 0px 0px;border: none;"
+                            placeholder="Select start time" min="1" max="12" />
+                        <input type="number" id="time-end"
+                            style="font-size: 20px; width: 50%;height:100%;padding: 10px 0px 10px 20px;border-radius: 0px 20px 20px 0px;border: none;"
+                            placeholder="Select end time" min="1" max="12" />
+                    </label>
+
+
+
+
+
+
+
+
+                </div>
+
+                <div class="task-div">
+                    <ol id="mytextshow" style=" color: black;font-size: 20px;">
+
+                    </ol>
+
+                </div>
+
+                <div style="width: 100%;height: 50px;display: flex;font-size:20px;align-items:center;">
+                    <p class="time-ing"
+                        style="text-align:center;height: 100%;width: 70%;border: none;margin:0;background:rgb(255, 202, 153);display:flex;align-items: center;justify-content: center;border-radius: 0px 0px 0px 20px;">
+                        Pending task : <span id="task-count">0</span>
+                    </p>
+                    <button
+                        style="font-family:Verdana, Geneva, Tahoma, sans-serif;color:white;height: 100%;width: 30%;border: none;background: orange;border-radius: 0px 0px 20px 0px;"
+                        type="button" id="addItem"><i class="bi bi-file-earmark-plus-fill"></i> Add Task</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script>
+
+
+       
+
+    </script>
+    <script src="./myjs/time-manager.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

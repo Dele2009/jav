@@ -283,7 +283,18 @@ function loaddate() {
 }
 
 
+function invisibles(message) {
+    priceoutput.innerHTML = message;
+    hotelnext.style.visibility = "hidden";
+    hotelnext.style.position = "absolute";
+    hotelbook.style.visibility = "visible";
+    hotelbook.style.position = "relative";
 
+    pricediv.style.visibility = "visible";
+    pricediv.style.position = "relative";
+    datediv.style.visibility = "visible";
+    datediv.style.position = "relative";
+}
 
 
 
@@ -329,33 +340,23 @@ function loadform() {
     }
 
     else if (day < 1 && rooms.value === "5000") {
-        priceoutput.innerHTML = `You have now chosen the regular residential suite, 
-                                 since you'll be staying with us for a night your total 
-                                 bill is &#8358;${rooms.value}.`;
-        hotelnext.style.visibility = "hidden";
-        hotelnext.style.position = "absolute";
-        hotelbook.style.visibility = "visible";
-        hotelbook.style.position = "relative";
 
-        pricediv.style.visibility = "visible";
-        pricediv.style.position = "relative";
-        datediv.style.visibility = "visible";
-        datediv.style.position = "relative";
+        invisibles(
+            `You have now chosen the regular residential suite, 
+             since you'll be staying with us for a night your total 
+             bill is &#8358;${rooms.value}.`,
+
+        );
     }
 
     else if (day < 1 && rooms.value === "2") {
-        priceoutput.innerHTML = `You have now chosen the Duluxe residential suite, 
-                                 since you'll be staying with us for a night your total 
-                                 bill is &#8358;${duluxprices.value}.`;
-        hotelnext.style.visibility = "hidden";
-        hotelnext.style.position = "absolute";
-        hotelbook.style.visibility = "visible";
-        hotelbook.style.position = "relative";
 
-        pricediv.style.visibility = "visible";
-        pricediv.style.position = "relative";
-        datediv.style.visibility = "visible";
-        datediv.style.position = "relative";
+        invisibles(
+            `You have now chosen the Duluxe residential suite, 
+            since you'll be staying with us for a night your total 
+            bill is &#8358;${duluxprices.value}.`,
+
+        );
     }
 
     else {
@@ -366,33 +367,24 @@ function loadform() {
 
 
         if (rooms.value === "5000") {
-            priceoutput.innerHTML = `You have now chosen the regular residential suite, 
-                                     since you'll be staying with us for ${day}days your tot
-                                     al bill is &#8358;${rooms.value * day}.`;
-            hotelnext.style.visibility = "hidden";
-            hotelnext.style.position = "absolute";
-            hotelbook.style.visibility = "visible";
-            hotelbook.style.position = "relative";
 
-            pricediv.style.visibility = "visible";
-            pricediv.style.position = "relative";
-            datediv.style.visibility = "visible";
-            datediv.style.position = "relative";
+            invisibles(
+                `You have now chosen the regular residential suite, 
+                 since you'll be staying with us for ${day}days your
+                 total bill is &#8358;${rooms.value * day}.`,
+
+            );
 
 
         }
         if (rooms.value === "2") {
-            priceoutput.innerHTML = `You have now chosen the Duluxe residential suite, 
-                                     since you'll be staying with us for ${day}days your tot
-                                     al bill is &#8358;${duluxprices.value * day}.`;
-            hotelnext.style.visibility = "hidden";
-            hotelnext.style.position = "absolute";
-            hotelbook.style.visibility = "visible";
-            hotelbook.style.position = "relative";
-            pricediv.style.visibility = "visible";
-            pricediv.style.position = "relative";
-            datediv.style.visibility = "visible";
-            datediv.style.position = "relative";
+
+            invisibles(
+                `You have now chosen the Duluxe residential suite, 
+                 since you'll be staying with us for ${day}days your total
+                 bill is &#8358;${duluxprices.value * day}.`,
+
+            );
 
 
 

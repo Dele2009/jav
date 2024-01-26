@@ -145,7 +145,7 @@ body {
 .hotel-descrip {
     width: 50%;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    /* margin: 20px auto; */
+    
     padding: 30px;
     background-color: hsl(12, 59%, 10%);
 
@@ -358,13 +358,15 @@ body {
     place-items: center;
     visibility: hidden;
     position: absolute;
+    /* border-radius: 20px !important; */
 }
 
 .card {
     width: 40%;
     background: rgba(242, 242, 242, 0.627) !important;
     backdrop-filter: blur(300px) !important;
-    border-radius: 29px;
+    border-radius: 20px !important;
+    
 
 
 }

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../mycss/style.css">
-    <link rel="shortcut icon" href="javaprojfav-removebg-preview.png" type="image/x-icon">
+    <link rel="shortcut icon" href="./img/javaprojfav-removebg-preview.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -49,6 +49,10 @@
             <a href="uber.html" class="">
 
                 <p class="p">UBER APP</p>
+            </a>
+            <a href="time-manager.html" class="">
+
+                <p class="p">TIME-MANAGEMENT APP</p>
             </a>
 
         </nav>
@@ -107,6 +111,10 @@
                     <a href="uber.html" class="">
 
                         <p>UBER APP</p>
+                    </a>
+                    <a href="time-manager.html" class="">
+
+                        <p>TIME-MANAGEMENT APP</p>
                     </a>
                 </nav>
 
@@ -615,9 +623,9 @@
 
 
 
-        // MY PERSONALINFOMATION
+        // MY PERSONAL INFORMATION
         function mak() {
-            let restplace = {
+            const restplace = {
                 name: 'Bamidele Aminu',
                 location: 'ibadan, oyo state',
                 food: {
@@ -625,12 +633,8 @@
                     soup: ['egusi', 'gbegiri ati ewedu', 'okro'],
                     drink: ['coke', 'fanta', 'guiness'],
                     meat: ['chicken', 'turkey', 'beef'],
-
-
-
                 },
-
-
+                
                 age: '17years',
                 birthdata: 'january 26 2006',
 
@@ -640,6 +644,23 @@
             alert(`My name is ${restplace.name} i'm ${restplace.age} old, i was born on ${restplace.birthdata} i live in ${restplace.location} 
             my favourite food to take is ${restplace.food.swallow[2]} with ${restplace.food.soup[0]} sided with a piece of ${restplace.food.meat[1]} and a bottle of ${restplace.food.drink[0]}`);
         }
+
+        function obj(){
+            const myself={
+                fname:"dele",
+                sname:"aminu",
+                job:"programmer",
+                fullname: function (){
+                    return `${this.sname} ${this.fname}`;
+                },
+                
+                
+            }
+            
+            alert(myself.fullname())
+            
+        }
+        obj()
 
 
 

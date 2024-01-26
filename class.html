@@ -5,8 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="ligth.css" id="links">
+    <link rel="stylesheet" href="../mycss/ligth.css" id="links">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Tektur:wght@600&display=swap" rel="stylesheet">
@@ -57,6 +58,178 @@
             font-family: 'Orbitron', sans-serif;
             width: 100%;
         }
+
+        
+        .ops{
+            display: flex;
+            
+        }
+        .ops button{
+            margin: 10px;
+        }
+        .stop-watch{
+            width: 100%;
+            
+            display: grid;
+            place-items: center;
+        }
+        .stopinn{
+            background: white;
+            box-shadow: 0px 0px 20px black;
+            width: fit-content;
+            display: grid;
+            place-items: center;
+            padding: 20px;
+            border-radius: 20px;
+        }
+        #time-display{
+            font-size: 60px;
+            font-family: 'Orbitron', sans-serif;
+        }
+        .btns button{
+            padding: 10px 20px;
+            border: none ;
+            border-radius: 10px;
+            font-size: 25px;
+            text-transform: capitalize;
+        }
+        button:active{
+            transform: scale(0.8);
+        }
+        .start-sec{
+            display: grid;
+            place-items: center;
+
+        }
+        #btnstart{
+            margin: auto;
+            padding: 10px 80px;
+        }
+        .ops .cops  {
+            
+        }
+        #btnpause,#btncont,#btnstop,#btnreset{
+            
+            visibility: hidden;
+            position: absolute;
+            
+
+        }
+        #img{
+            transform: ;
+        }
+
+
+        body{
+            padding: 0px 0px 0px 22%;
+        }
+        .container-list{
+            width: 100%;
+            display: grid;
+            place-items: center;
+            height: 100dvh;
+        
+        }
+        .main-content{
+            width:60%;
+            display: grid;
+            place-items: center;
+            background-color: rgb(255, 255, 255);
+            box-shadow: 0px 0px 10px black;
+            border-radius: 20px;
+            height: fit-content;
+            
+        }
+        .task-div{
+           max-height: 250px;
+           width: 80%;
+            overflow-y: auto;
+            margin:20px;
+            padding: 10px;
+            
+        }
+        
+        .flex{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0px 0px 10px black;
+            padding: 5px 10px;
+            background: white;
+            border-radius: 20px;
+            margin: 10px;
+
+           
+        }
+        .fa-trash{
+            color: white;
+            background: red;
+            padding: 10px;
+            border-radius: 10px;
+            margin: 5px;
+            cursor: pointer;
+        }
+        .fa-circle-check{
+            color: white;
+            background: green;
+            padding: 10px;
+            border-radius: 10px;
+            margin: 5px;
+            cursor: pointer;
+        }
+        .fa-pen-to-square{
+            color: white;
+            background: gold;
+            padding: 10px;
+            border-radius: 10px;
+            margin: 5px;
+            cursor: pointer;
+        }
+        .main-div{
+            width: 100%;
+           
+        }
+        .side-bar{
+            position: fixed;
+            height: 100dvh;
+            width: 300px;
+            left: 0;
+            overflow-y: auto;
+            box-shadow: 0px 0px 8px black;
+           
+            
+            background: rgb(255, 255, 255);
+        }
+        .side-bar ul{
+            list-style-type: none;
+            padding: 0;
+            margin: 40px 10px;
+            
+        }
+        .side-bar ul li{
+            font-size: 20px;
+            margin: 10px 0px;
+            background: gold;
+            border-radius: 20px;
+            padding: 15px 0;
+           
+            text-align: center;
+        }
+        .side-bar ul li a{
+            color: white;
+            
+            
+           
+            
+            text-decoration: none;
+
+        }
+        @media (max-width:800px){
+            .main-content{
+                width:100%;
+                
+            }
+        }
     </style>
 </head>
 
@@ -103,8 +276,8 @@
 
 
 
-    <div >
-        <!-- <form action="" name="userform" onclick="return(formvalidation())">
+    <!-- <div >
+        <form action="" name="userform" onclick="return(formvalidation())">
             <table>
                 <tr>
                     <td>Name:</td>
@@ -147,80 +320,82 @@
         </form>
         <button type="submit" onclick="formvalidation()">submit</button>
     </div> -->
+<nav class="side-bar">
+    <ul>
+        <li><a href="">DOCUMENTATION (1)</a></li>
+        <li><a href="">DOCUMENTATION (2)</a></li>
+        <li><a href="">OPERATORS&<br>STATEMENTS PROJECT</a></li>
+        <li><a href="">SIMPLE CALCULATOR&<br>RETIREMENT CALCULATOR</a></li>
+        <li><a href="">NUMBER GAME&<br>INVESTMENT CALCULATOR&<br>PRIME NUMBER CHECKER&<br>LOAN CALCULATOR</a></li>
+        <li><a href="">HOTEL BOOKING APP</a></li>
+        <li><a href="">UBER APP</a></li>
+        <li><a href="">TIME MANAGEMENT APP</a></li>
+    </ul>
+</nav>
+<div class="main-div">
+    <div class="container-list">
+        <div class="main-content">
+            <div style="display: flex;height: 50px;width: 100%; align-items: center;justify-content: center;border: 2px solid grey; border-radius: 20px;">
+                <label for="items" style="display: flex;flex-direction: column;width: 60%;height:100%;">
+                    
+                    <input type="text" id="items" style="font-size: 15px; width: 100%;height:100%;border:none;padding: 10px 0px 10px 10px;border-radius: 20px 0px 0px 20px;" placeholder="Enter task be done"/>
+                   
+                </label>
+                <label for="time" style="display: flex;flex-direction: row;width:40%;height:100%;border:1px solid grey;border-radius: 0px 20px 20px 0px;">
+                    
+                    <input type="number" id="time-start" style="font-size: 15px; width: 50%;height:100%;padding: 10px 0px 10px 10px;border-radius: 0px 0px 0px 0px;border: none;" placeholder="Select start time" oninput="times()" min="1" max="12"/>
+                    <input type="number" id="time-end" style="font-size: 15px; width: 50%;height:100%;padding: 10px 0px 10px 10px;border-radius: 0px 20px 20px 0px;border: none;" placeholder="Select end time" oninput="times()" min="1" max="12"/>
+                </label>
+                <!-- <label for="time" style="display: flex;flex-direction: column;width:20%;height:100%;border:1px solid grey;border-radius: 0px 20px 20px 0px;">
+                    end
+                    <input type="time" id="time-end" style="font-size: 15px; width: 100%;height:100%;padding: 10px 0px 10px 10px;border-radius: 0px 0px 20px 0px;border: none;" placeholder="select time" oninput="times()"/>
+                </label> -->
+       
+        
+                
+                
+              
+               
+               
+            </div>
+        
+            <div class="task-div"  >
+                <ol id="mytextshow" style=" color: black;font-size: 20px;">
+                   
+                </ol>
+        
+            </div>
+
+            <div style="width: 100%;height: 50px;display: flex;justify-content: flex-end;">
+                <button style="color:white;font-size:20px;height: 100%;width: 30%;border-radius: 20px;border: none;background: orange;" type="button"   id="addItem">Add Task</button>
+            </div>
+        </div>
+        
+    </div>
+</div>
    
-    <div id="man">
+
+
+
+
+    
+    <!-- <div id="man">
         <span id="may" class="may jay"></span>
-        <input type="date" id="dateu" oninput=" cjk()">
+        
     </div>
 
 
     <h1 id="digitaltime"></h1>
+    
 
     <style>
-        .btns{
 
-        }
-        .ops{
-            display: flex;
-            
-        }
-        .ops button{
-            margin: 10px;
-        }
-        .stop-watch{
-            width: 100%;
-            
-            display: grid;
-            place-items: center;
-        }
-        .stopinn{
-            background: white;
-            box-shadow: 0px 0px 20px black;
-            width: fit-content;
-            display: grid;
-            place-items: center;
-            padding: 20px;
-            border-radius: 20px;
-        }
-        #time-display{
-            font-size: 60px;
-            font-family: 'Orbitron', sans-serif;
-        }
-        .btns button{
-            padding: 10px 20px;
-            border: none ;
-            border-radius: 10px;
-            font-size: 25px;
-            text-transform: capitalize;
-        }
-        .btns button:active{
-            transform: scale(0.8);
-        }
-        .start-sec{
-            display: grid;
-            place-items: center;
-
-        }
-        #btnstart{
-            margin: auto;
-            padding: 10px 80px;
-        }
-        .ops .cops  {
-            
-        }
-        #btnpause,#btncont,#btnstop,#btnreset{
-            
-            visibility: hidden;
-            position: absolute;
-            
-
-        }
 
 
     </style>
 
 
-    <!-- <div class="stop-watch">
+    <div class="stop-watch">
         <div class="stopinn">
         <h1 id="time-display">
             <span id="min">00</span>
@@ -247,21 +422,29 @@
 
         </div>
     </div>
-    </div> -->
+    </div>
 
-    <img src="HOTEL BACK-1 (2).png" alt="" id="img" style="position: relative;width: 60px;"><br>
+    <p id="img" style="font-size: 30px;">
+        🛺
+    </p><br/>
 
-    <button onclick="startter()">start</button>
-    <button onclick="frame()">Stop</button>
+    <button onclick="startter()" style="background-color: green;border: none;padding: 10px 20px;font-size: 20px;border-radius: 10px;">start</button>
+    <button onclick="frame()" style="background-color: red;border: none;padding: 10px 20px;font-size: 20px;border-radius: 10px;">Stop</button>
 
 
     <div>
         
         <i class="fa-solid" id="charge" style="font-size: 200px;"></i><br>
-        <button id="go">charge</button>
-        <button id="stop">unplug</button>
+        <button id="go" style="background-color: green;border: none;padding: 10px 20px;font-size: 20px;border-radius: 10px;">charge</button>
+        <button id="stop" style="background-color: red;border: none;padding: 10px 20px;font-size: 20px;border-radius: 10px;">unplug</button>
 
-    </div>
+
+
+    </div> -->
+    
+
+    
+   
 
    
 
@@ -271,239 +454,415 @@
 
     <script>
 
-        let charging=document.getElementById("charge");
-        let mover=document.getElementById("go");
-        let noer=document.getElementById("stop");
-        let m;
-        charging.innerHTML="&#xf244;"
-        let j=20
-        function chargingflow(){
+        
+        let Task=document.getElementById("items");
+        let Timestart=document.getElementById("time-start");
+        let TimeEnd=document.getElementById("time-end");
+        let myOl=document.getElementById("mytextshow");
+        const itemAdder=document.getElementById("addItem"); 
+        function times(){
+            console.log(Timestart.value);
+            console.log(TimeEnd.value);
+        }
+        function create(){
+           let newli=document.createElement("li");
+           let mylicontent=document.createTextNode(Task.value);
+           let taskdiv=document.createElement("span");
+           let timediv=document.createElement("span");
+           let sepator=document.createTextNode("-----")
+           taskdiv.className="task"
+           taskdiv.appendChild(mylicontent);
 
-            if(j==100){
-                clearInterval(m);
-                charging.innerHTML="&#xf240;"
+
+           let mystarttime=document.createTextNode(Timestart.value+":00");
+           let myendtime=document.createTextNode(TimeEnd.value+":00");
+           let startdiv=document.createElement("span");
+           startdiv.className="startvalue"
+           let enddiv=document.createElement("span");
+           enddiv.className="endvalue"
+           startdiv.appendChild(mystarttime);
+           enddiv.appendChild(myendtime);
+
+
+           timediv.appendChild(startdiv);
+           timediv.appendChild(sepator);
+           timediv.appendChild(enddiv);
+           newli.appendChild(  taskdiv);
+           
+           newli.appendChild(timediv);
+           newli.classList.add("flex");
+
+           myOl.insertBefore(newli,myOl.childNodes[1] );
+           document.getElementById("items").value="";
+           document.getElementById("time-start").value="";
+           document.getElementById("time-end").value="";
+
+           let deletekey=document.createElement("span");
+            let icons=document.createElement("div");
+           deletekey.className="delete";
+           let delelogo=document.createElement("i");
+           delelogo.className="fa-solid fa-trash";
+           let checklogo=document.createElement("i");
+            checklogo.className="fa-solid fa-circle-check";
+            let editlogo=document.createElement("i");
+            editlogo.className="fa-solid fa-pen-to-square";
+            deletekey.appendChild(delelogo);
+            deletekey.appendChild(checklogo);
+           
+           deletekey.appendChild(editlogo);
+           
+           
+           newli.appendChild(deletekey);
+
+           let deletebtn=document.getElementsByClassName("fa-trash");
+           console.log(deletebtn)
+
+           let checkedbtn=document.getElementsByClassName("fa-circle-check");
+           console.log(checkedbtn)
+
+           let editbtn=document.getElementsByClassName("fa-pen-to-square");
+
+            let i;
+            for(i=0; i< deletebtn.length; i++){
+               
+             console.log(i)
+                deletebtn[i].onclick=function(){
+                    this.closest(".flex").style.display="none";
+                }
+
+                checkedbtn[i].onclick=function(){
+                    this.closest(".flex").style.textDecoration="line-through";
+                    this.closest(".flex").style.color="green";
+                }
+
+                editbtn[i].onclick=function(){
+                    if(Task.value){
+                        Task.focus();
+                    }
+                    else{
+                        let itmes=this.closest(".flex")
+                        let task_content=itmes.querySelector(".flex .task").textContent;
+                        let start_content=+(itmes.querySelector(".flex .startvalue").textContent.replace(":00", ""));
+                        let end_content=+(itmes.querySelector(".flex .endvalue").textContent.replace(":00", ""));
+                        document.getElementById("items").value=task_content;
+                        document.getElementById("time-start").value=start_content;
+                        document.getElementById("time-end").value=end_content;
+                        // Task.value=edit_task;
+                        itmes.style.display="none";
+                        // console.log(liconte);
+                    }
+                   
+                }
+            }
+
+
+           
+
+
+        }
+
+        const approvedformat=()=>{
+            if(Task.value&&Timestart.value&&TimeEnd.value){
+                create();
             }
             else{
-                j=j+20;
-            charging.innerHTML="&#xf244;"
-
-            setTimeout(()=>{
-                charging.innerHTML="&#xf243;"
-            },1000);
-            setTimeout(()=>{
-                charging.innerHTML="&#xf242;"
-            },2000);
-            setTimeout(()=>{
-                charging.innerHTML="&#xf241;"
-            },3000);
-            setTimeout(()=>{
-                charging.innerHTML="&#xf240;"
-            },4000)
-        }
-        } 
-        
-        
-        
-        mover.addEventListener("click",()=>{
-            chargingflow();
-            m=setInterval(chargingflow,5000)
-           
-        });
-
-        noer.addEventListener("click",()=>{ clearInterval(m) })
-
-
-
-
-
-
-       
-        let x=0;
-        let o=0
-        let car;
-        let img=document.getElementById("img");
-       
-
-        function startter(){
-            function start(){
-                x++
-                o++
-                img.style.left= x+"px";
-                img.style.width=o+"px";
+                if(!Task.value){
+                    Task.focus();
+                }
+                else if(!Timestart.value){
+                    Timestart.focus();
+                }
+                else if(!TimeEnd.value){
+                    TimeEnd.focus();
+                }
+                
             }
-            car=setInterval(start,20)
-        }
-    
-        function frame(){
-            clearInterval(car);
         }
 
+        itemAdder.addEventListener("click", ()=>{
+            approvedformat();
+        })
 
 
 
 
+        document.addEventListener("keydown", (e)=>{
+            if(e.key=="Enter"){
+                approvedformat();
+                console.log(e.target)
+            }
+        })
 
-
-
-
-
-
-
-        let mm=document.getElementById("min");
-        let ss=document.getElementById("sec"); 
-        let btnstart=document.getElementById("btnstart");
-        let btnpause=document.getElementById("btnpause");
-        let btncon=document.getElementById("btncont");
-        let btnstop=document.getElementById("btnstop");
-        let btnreset=document.getElementById("btnreset");
-
-        let initializer=0;
-        let k,minout,secout;
-
-        function starter(){
-            initializer++
-            minout=parseInt(initializer/60).toString().padStart(2,"0");
-            secout=(initializer%60).toString().padStart(2,"0");
-            console.log(minout);
-            console.log(secout);
-            mm.innerHTML=minout;
-            ss.innerHTML=secout;
-
-        }
-
-        function go(){
-           k=setInterval(starter,1000)
-           btnstart.style.visibility="hidden";
-           btnstart.style.position="absolute";
-           btnpause.style.visibility="visible";
-           btnpause.style.position="relative";
-           btnstop.style.visibility="visible";
-           btnstop.style.position="relative";
-
-
-        }
+        
         
 
-        btnstart.addEventListener("click", go);
-        btnpause.addEventListener("click",()=>{
-            clearInterval(k);
-            btncon.style.visibility="visible";
-            btncon.style.position="relative";
-            btnpause.style.visibility="hidden";
-           btnpause.style.position="absolute";
 
-        })
-        btncon.addEventListener("click",()=>{
-            k=setInterval(starter,1000)
-            btncon.style.visibility="hidden";
-            btncon.style.position="absolute";
-            btnpause.style.visibility="visible";
-           btnpause.style.position="relative";
-        })
-        btnstop.addEventListener("click",()=>{
-            clearInterval(k);
+
+
+
+
+//         let charging=document.getElementById("charge");
+//         let mover=document.getElementById("go");
+//         let noer=document.getElementById("stop");
+//         let m;
+//         charging.innerHTML="&#xf244;"
+//         let j=20
+//         function chargingflow(){
+
+//             if(j==100){
+//                 clearInterval(m);
+//                 charging.innerHTML="&#xf240;"
+//                 charging.style.color="green";
+//             }
+//             else{
+//                 j=j+5;
+//             charging.innerHTML="&#xf244;"
+//             charging.style.color="red";
+
+//             setTimeout(()=>{
+//                 charging.innerHTML="&#xf243;"
+//             },1000);
+//             setTimeout(()=>{
+//                 charging.innerHTML="&#xf242;"
+//             },2000);
+//             setTimeout(()=>{
+//                 charging.innerHTML="&#xf241;"
+//             },3000);
+//             setTimeout(()=>{
+//                 charging.innerHTML="&#xf240;"
+//             },4000)
+//         }
+//         } 
+        
+        
+        
+//         mover.addEventListener("click",()=>{
+//             chargingflow();
+//             m=setInterval(chargingflow,5000)
+           
+//         });
+
+//         noer.addEventListener("click",()=>{ clearInterval(m) })
+
+
+
+
+
+
+       
+//         let x=0;
+//         let o=0
+//         let car;
+//         let img=document.getElementById("img");
+       
+
+//         function startter(){
+//             function start(){
+//                 if (x==1400) {
+//                     clearInterval(car);
+//                 }
+//                 else{
+//                 x++
+//                 o++
+//                 img.style.marginLeft= x+"px";
+//                 //img.style.width=o+"px";
+//                 }
+//             }
+//             car=setInterval(start,5)
+//         }
+    
+//         function frame(){
+//             clearInterval(car);
+//         }
+
+
+
+
+
+
+
+
+
+
+
+
+//         let mm=document.getElementById("min");
+//         let ss=document.getElementById("sec"); 
+//         let btnstart=document.getElementById("btnstart");
+//         let btnpause=document.getElementById("btnpause");
+//         let btncon=document.getElementById("btncont");
+//         let btnstop=document.getElementById("btnstop");
+//         let btnreset=document.getElementById("btnreset");
+
+//         let initializer=0;
+//         let k,minout,secout;
+
+//         function starter(){
+//             initializer++
+//             minout=parseInt(initializer/60).toString().padStart(2,"0");
+//             secout=(initializer%60).toString().padStart(2,"0");
+//             console.log(minout);
+//             console.log(secout);
+//             mm.innerHTML=minout;
+//             ss.innerHTML=secout;
+
+//         }
+
+//         function go(){
+//            k=setInterval(starter,1000)
+//            btnstart.style.visibility="hidden";
+//            btnstart.style.position="absolute";
+//            btnpause.style.visibility="visible";
+//            btnpause.style.position="relative";
+//            btnstop.style.visibility="visible";
+//            btnstop.style.position="relative";
+
+
+//         }
+        
+
+//         btnstart.addEventListener("click", go);
+//         btnpause.addEventListener("click",()=>{
+//             clearInterval(k);
+//             btncon.style.visibility="visible";
+//             btncon.style.position="relative";
+//             btnpause.style.visibility="hidden";
+//            btnpause.style.position="absolute";
+
+//         })
+//         btncon.addEventListener("click",()=>{
+//             k=setInterval(starter,1000)
+//             btncon.style.visibility="hidden";
+//             btncon.style.position="absolute";
+//             btnpause.style.visibility="visible";
+//            btnpause.style.position="relative";
+//         })
+//         btnstop.addEventListener("click",()=>{
+//             clearInterval(k);
             
-            btnreset.style.visibility="visible";
-            btnreset.style.position="relative";
-            btnpause.style.visibility="hidden";
-            btnpause.style.position="absolute";
-            btnstop.style.visibility="hidden";
-            btnstop.style.position="absolute";
-            btncon.style.visibility="hidden";
-            btncon.style.position="absolute";
+//             btnreset.style.visibility="visible";
+//             btnreset.style.position="relative";
+//             btnpause.style.visibility="hidden";
+//             btnpause.style.position="absolute";
+//             btnstop.style.visibility="hidden";
+//             btnstop.style.position="absolute";
+//             btncon.style.visibility="hidden";
+//             btncon.style.position="absolute";
            
            
 
 
-        })
-        btnreset.addEventListener("click",()=>{
-            initializer=0;
-            mm.innerHTML="00";
-            ss.innerHTML="00";
-            btnreset.style.visibility="hidden";
-            btnreset.style.position="absolute";
-            btnstart.style.visibility="visible";
-            btnstart.style.position="relative";
+//         })
+//         btnreset.addEventListener("click",()=>{
+//             initializer=0;
+//             mm.innerHTML="00";
+//             ss.innerHTML="00";
+//             btnreset.style.visibility="hidden";
+//             btnreset.style.position="absolute";
+//             btnstart.style.visibility="visible";
+//             btnstart.style.position="relative";
            
            
            
           
-        })
+//         })
 
 
 
 
-        function cjk(){
-            let gh=document.getElementById('dateu').value;
-        console.log(gh);
-        hj=new Date(`${gh}`)
-        console.log(hj);
-        }
+//         function cjk(){
+//             let gh=document.getElementById('dateu').value;
+//         console.log(gh);
+//         hj=new Date(`${gh}`)
+//         console.log(hj);
+//         }
         
 
 
      
 
-      let birthday=new Date("jan, 18 2024 00:00 AM").getTime();
-      let display=document.getElementById("may");
+//       let birthday=new Date("jan, 30 2024 00:00 AM").getTime();
+//       let display=document.getElementById("may");
       
       
 
-        function birthdaycalc(){
-            presentday= new Date().getTime();
-            birhdayDtan=birthday-presentday;
-            month=Math.floor(birhdayDtan/((1000*60*60*24)*30));
-            days=Math.floor(birhdayDtan%((1000*60*60*24)*30)/(1000*60*60*24));
-            hours=Math.floor((birhdayDtan%(1000*60*60*24))/(1000*60*60));
-            minute=Math.floor((birhdayDtan%(1000*60*60))/(1000*60));
-            seconds=Math.floor((birhdayDtan%(1000*60))/(1000));
-            if(birhdayDtan<1){
-                clearInterval(start);
-                display.innerHTML=`🎂✨✨🎁🎉🎈happy birthday🎈🎉🎁✨✨🎂`;
-                display.classList.add("may");
-                display.classList.remove('jay');
-            }else{
-                display.classList.remove('may');
-                display.classList.add("jay")
-                display.innerHTML=`${month}<span style="color:purple;">mths</span> :
-                                    ${days}<span style="color:purple;">days</span> : 
-                                    ${hours}<span style="color:purple;">hrs</span> : 
-                                    ${minute}<span style="color:purple;">m</span> : 
-                                    ${seconds}<span style="color:purple;">s</span>`;
-            }
+//         function birthdaycalc(){
+//             presentday= new Date().getTime();
+//             birhdayDtan=birthday-presentday;
+//             month=Math.floor(birhdayDtan/((1000*60*60*24)*30));
+//             days=Math.floor(birhdayDtan%((1000*60*60*24)*30)/(1000*60*60*24));
+//             hours=Math.floor((birhdayDtan%(1000*60*60*24))/(1000*60*60));
+//             minute=Math.floor((birhdayDtan%(1000*60*60))/(1000*60));
+//             seconds=Math.floor((birhdayDtan%(1000*60))/(1000));
+//             if(birhdayDtan<1){
+//                 clearInterval(start);
+//                 display.innerHTML=`🎂✨✨🎁🎉🎈happy birthday🎈🎉🎁✨✨🎂`;
+//                 display.classList.add("may");
+//                 display.classList.remove('jay');
+//             }else{
+//                 display.classList.remove('may');
+//                 display.classList.add("jay")
+//                 display.innerHTML=`${month}<span style="color:purple;">mths</span> :
+//                                     ${days}<span style="color:purple;">days</span> : 
+//                                     ${hours}<span style="color:purple;">hrs</span> : 
+//                                     ${minute}<span style="color:purple;">m</span> : 
+//                                     ${seconds}<span style="color:purple;">s</span>`;
+//             }
            
-        }
-        let start=setInterval(birthdaycalc,1000);
-function myclock(){
-    let today=new Date();
-    let hour=today.getHours();
-    let minute=today.getMinutes().toString().padStart(2,"0");
-    let seconds=today.getSeconds().toString().padStart(2,"0");
-    let clock=document.getElementById("digitaltime");
-    let med=hour>0&&hour<12?"AM":"PM";
+//         }
+//         let start=setInterval(birthdaycalc,1000);
+// function myclock(){
+//     let today=new Date();
+//     let hour=today.getHours();
+//     let minute=today.getMinutes().toString().padStart(2,"0");
+//     let seconds=today.getSeconds().toString().padStart(2,"0");
+//     let clock=document.getElementById("digitaltime");
+//     let med=hour>0&&hour<12?"AM":"PM";
     
     
 
-    if(hour>12&&hour<25){
-        hour=(hour-12)
+//     if(hour>12&&hour<25){
+//         hour=(hour-12)
 
-    }
-    if(hours==0){
-       hours==12
+//     }
+//     if(hours==0){
+//        hours==12
 
-    }
-    else{
-        hour=hour.toString().padStart(2,"0")
-        clock.innerHTML=`${hour} : ${minute} : ${seconds}  ${med}`;
+//     }
+//     else{
+//         hour=hour.toString().padStart(2,"0")
+//         clock.innerHTML=`${hour} : ${minute} : ${seconds}  ${med}`;
 
-    }
+//     }
    
 
    
 
 
-}
-setInterval(myclock,1000);
+// }
+// setInterval(myclock,1000);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 //THIS CODE CAN BE USED TO CHECK TOTAL TIME TO A SPECIFIC DAY
 // day = Math.floor(daydis / (1000 * 60 * 60 * 24)).toString().padStart(2,"0");
