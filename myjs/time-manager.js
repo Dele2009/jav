@@ -120,7 +120,7 @@ function create() {
         let minutes = parseInt((countdownValue % 3600) / 60).toString().padStart(2, "0");
         let seconds = parseInt(countdownValue % 60).toString().padStart(2, "0");
 
-        console.log(hours, minutes, seconds);
+        
         collapP3.textContent = `Time left: ${hours}h ${minutes}m ${seconds}s`;
         Time_span.textContent = `${hours}h ${minutes}m ${seconds}s`;
 
@@ -202,7 +202,7 @@ function create() {
 
 
 
-    console.log(collapDiv);
+   
 
 
 
@@ -247,13 +247,13 @@ function create() {
     deletekey.appendChild(editlogo);
     newli.appendChild(deletekey);
     let btnCont = document.getElementsByClassName("allbtns");
-    console.log(newli);
-    console.log(btnCont);
+   
+    
     let deletebtn = document.getElementsByClassName("fa-trash");
-    console.log(deletebtn)
+   
 
     let checkedbtn = document.getElementsByClassName("fa-circle-check");
-    console.log(checkedbtn)
+    
 
     let editbtn = document.getElementsByClassName("fa-pen-to-square");
 
@@ -265,7 +265,7 @@ function create() {
     let i;
 
     for (i = 0; i < btnCont.length; i++) {
-        console.log(i)
+        
         deletebtn[i].onclick = function () {
             let theclosestFlex = this.closest(".flex");
            
@@ -368,27 +368,7 @@ itemAdder.addEventListener("click", () => {
 document.addEventListener("keydown", (e) => {
     if (e.key == "Enter") {
         approvedformat();
-        console.log(e.target)
+       
     }
 })
 
-let a = 10
-let b = 2
-let c = 10 % 2
-console.log(c)
-
-
-
-const myname = "tunji";
-const newname = [...myname];
-console.log(newname);
-
-const mystate = {
-    oyo: "ibadan",
-    anambra: "eneugu"
-}
-const newstate = {
-    kaduna: "zaria",
-    ...mystate
-}
-console.log(newstate)
