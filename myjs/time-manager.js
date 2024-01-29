@@ -4,66 +4,183 @@ let TimeEnd = document.getElementById("time-end");
 let myOl = document.getElementById("mytextshow");
 const itemAdder = document.getElementById("addItem");
 let task_to_Do = document.getElementById("task-count");
+let errormess = document.getElementById("error");
+let errormess2 = document.getElementById("error2");
+
+let openbtn = document.querySelector("#open");
+let closebtn = document.getElementById("close");
+let sidebar = document.querySelector(".side-bar");
+let sidebarcont = document.querySelectorAll(".side-bar .max .link");
 
 let timedistance,
-    innitiatior;
+    innitiatior,
+    timecount,
+    textP3,
+    time,
+    proceed1,
+    proceed2;
 
 
+//MENU BAR OFFCANVAS TO OPEN AND CLOSE.........  
+
+openbtn.addEventListener("click", () => {
+    closebtn.style.display = "inline-block";
+    sidebar.style.width = "320px";
+
+    sidebar.style.overflow = "hidden auto";
+    sidebar.classList.add("side-bar-features");
+
+    sidebarcont.forEach(a => {
+        a.style.visibility = "visible";
+        a.style.position = "relative";
+    })
+})
+
+closebtn.addEventListener("click", () => {
+    closebtn.style.display = "none";
+    sidebar.style.width = "0px";
+    sidebar.style.overflowY = "hidden";
+    sidebar.classList.remove("side-bar-features");
+
+
+    sidebarcont.forEach(a => {
+        a.style.visibility = "hidden";
+        a.style.position = "absolute";
+    })
+})
+
+
+
+//TIME INPUT VALIDATIONS FOR START AND END.......
+function timestart() {
+    let startTime = parseInt(Timestart.value);
+    if (isNaN(startTime) || startTime > 24) {
+        Timestart.style.border = "3px solid red";
+        proceed1 = false;
+        errormess.style.display = "block";
+    }
+    else {
+        Timestart.style.border = "";
+        proceed1 = true;
+        errormess.style.display = "none";
+    }
+}
+
+function timeend() {
+    let endTime = parseInt(TimeEnd.value);
+    if (isNaN(endTime) || endTime > 24) {
+
+        TimeEnd.style.border = "3px solid red";
+        proceed2 = false;
+        errormess2.style.display = "block";
+    }
+    else {
+        TimeEnd.style.border = "";
+        proceed2 = true;
+        errormess2.style.display = "none";
+    }
+}
+
+
+
+
+// MAIN APP CREATION ENGINE.........
 function create() {
     let newli = document.createElement("li");
     let mylicontent = document.createTextNode(Task.value);
     let taskdiv = document.createElement("span");
     taskdiv.className = "task"
     let timediv = document.createElement("span");
-    let sepator = document.createTextNode("--")
+    timediv.className = "time-flex"
 
 
 
-    let mystarttime = document.createTextNode(Timestart.value + ":00");
-    let myendtime = document.createTextNode(TimeEnd.value + ":00");
-    let startdiv = document.createElement("span");
-    startdiv.className = "startvalue"
+
+
+    let Time_span = document.createElement("span");
+    Time_span.className = "timevalue";
     let enddiv = document.createElement("span");
     enddiv.className = "endvalue"
 
-    //COLLAPSE TIME-RECORDING CREATION SYSTEM
+
+    //COLLAPSE TIME-RECORDING CREATION SYSTEM......
 
     let start_val = Timestart.value + ":00";
     let end_val = TimeEnd.value + ":00";
 
     timedistance = TimeEnd.value - Timestart.value;
 
-    //COLLAPSE MAIN DIV
+
+
+
+
+    let countdownTimer;
+    let countdownValue = timedistance * 60 * 60; //To Convert the hours to seconds.......
+    function updateCountdown() {
+        let hours = parseInt(countdownValue / 3600).toString().padStart(2, "0");
+        let minutes = parseInt((countdownValue % 3600) / 60).toString().padStart(2, "0");
+        let seconds = parseInt(countdownValue % 60).toString().padStart(2, "0");
+
+        console.log(hours, minutes, seconds);
+        collapP3.textContent = `Time left: ${hours}h ${minutes}m ${seconds}s`;
+        Time_span.textContent = `${hours}h ${minutes}m ${seconds}s`;
+
+        if (countdownValue <= 0) {
+            clearInterval(countdownTimer);
+            collapP3.textContent = "Time's up!";
+            Time_span.textContent = "Time's up!";
+        } else {
+            countdownValue--;
+        }
+    }
+
+    countdownTimer = setInterval(updateCountdown, 1000);
+
+
+
+
+    //COLLAPSE MAIN DIV.....
     let collapDiv = document.createElement("div");
     collapDiv.className = "dropdown";
 
-    //COLLAPSE BUTTON
+    //COLLAPSE BUTTON......
     let collapDivbtn = document.createElement("button");
     collapDivbtn.className = "btn btn-secondary dropdown-toggle";
     collapDivbtn.type = "button";
     collapDivbtn.setAttribute("data-bs-toggle", "dropdown");
-    //COLLAPSE_BTN LOGO
+
+    //COLLAPSE_BTN LOGO......
     let collapDivbtnlogo = document.createElement("i");
-    collapDivbtnlogo.className="bi bi-hourglass-split";
+    collapDivbtnlogo.className = "bi bi-hourglass-split";
     collapDivbtn.appendChild(collapDivbtnlogo);
-    //COLLAPSE UL
+
+    //COLLAPSE UL.......
     let collapDivUl = document.createElement("ul");
-    collapDivUl.className = "dropdown-menu"
-    //COLLAPSE LI
+    collapDivUl.className = "dropdown-menu";
+
+    //COLLAPSE LI.......
     let collapDivli1 = document.createElement("li");
     let collapDivli2 = document.createElement("li");
+    let collapDivli3 = document.createElement("li");
 
-    //FISRT p
+    //FISRT COLLAPSE TEXT.......
     let collapP = document.createElement("a");
     collapP.className = "dropdown-item";
-    //SECOND P
+
+    //SECOND COLLAPSE TEXT.......
     let collapP2 = document.createElement("a");
     collapP2.className = "dropdown-item";
 
+    //THIRD COLLAPSE TEXT.......
+    let collapP3 = document.createElement("a");
+    collapP3.className = "dropdown-item time-count";
+
     let textP1 = document.createTextNode(`Your selected time is ${start_val}--${end_val}`)
     let textP2 = document.createTextNode(`You have ${timedistance}Hour to complete this task`)
+
     collapP.appendChild(textP1);
     collapP2.appendChild(textP2);
+
 
 
 
@@ -75,8 +192,11 @@ function create() {
 
     collapDivUl.appendChild(collapDivli1);
     collapDivUl.appendChild(collapDivli2);
+    collapDivUl.appendChild(collapDivli3);
     collapDivli1.appendChild(collapP);
     collapDivli2.appendChild(collapP2);
+    collapDivli3.appendChild(collapP3);
+    collapDivli3.className = "time-count";
 
 
 
@@ -91,26 +211,22 @@ function create() {
 
 
 
-    startdiv.appendChild(mystarttime);
-    enddiv.appendChild(myendtime);
+
 
 
 
     taskdiv.appendChild(mylicontent);
-    timediv.appendChild(startdiv);
-    timediv.appendChild(sepator);
-    timediv.appendChild(enddiv);
+    timediv.appendChild(Time_span);
     timediv.appendChild(collapDiv);
-
-    timediv.classList.add("time-flex");
+   
 
 
     newli.appendChild(taskdiv);
 
     newli.appendChild(timediv);
-    newli.classList.add("flex");
+    newli.className="flex";
 
-    myOl.insertBefore(newli, myOl.childNodes[1]);
+    myOl.insertBefore(newli, null);
     document.getElementById("items").value = "";
     document.getElementById("time-start").value = "";
     document.getElementById("time-end").value = "";
@@ -145,18 +261,21 @@ function create() {
 
 
 
-    task_number = btnCont.length;
-    task_to_Do.textContent = task_number;
+    pending_task_number = btnCont.length;
+    task_to_Do.textContent = pending_task_number;
     let i;
+
     for (i = 0; i < btnCont.length; i++) {
 
         console.log(i)
         deletebtn[i].onclick = function () {
             let theclosestFlex = this.closest(".flex");
+            clearInterval(countdownTimer);
+
 
             if (!theclosestFlex.classList.contains("completed")) {
                 theclosestFlex.remove();
-                task_to_Do.textContent = --task_number;
+                task_to_Do.textContent = --pending_task_number;
             }
             else {
                 theclosestFlex.remove();
@@ -169,11 +288,15 @@ function create() {
 
         checkedbtn[i].onclick = function () {
             let theclosestFlex = this.closest(".flex");
+            let thetask = theclosestFlex.querySelector(".flex .task");
             if (!theclosestFlex.classList.contains("completed")) {
-                theclosestFlex.style.textDecoration = "line-through";
-                theclosestFlex.style.color = "green";
+                thetask.style.textDecoration = "line-through";
+                thetask.style.color = "green";
                 theclosestFlex.classList.add("completed");
-                task_to_Do.textContent = --task_number;
+                task_to_Do.textContent = --pending_task_number;
+                clearInterval(countdownTimer);
+                collapP3.textContent = "Task ended";
+                Time_span.textContent = "Task ended";
             }
         }
 
@@ -182,33 +305,24 @@ function create() {
                 Task.focus();
             }
             else {
-                let theclosestFlex = this.closest(".flex")
+                let theclosestFlex = this.closest(".flex");
+                let task_content = theclosestFlex.querySelector(".flex .task").textContent;
+                let start_content = +(start_val.replace(":00", ""));
+                let end_content = +(end_val.replace(":00", ""));
+                document.getElementById("items").value = task_content;
+                document.getElementById("time-start").value = start_content;
+                document.getElementById("time-end").value = end_content;
+                theclosestFlex.remove();
+                clearInterval(countdownTimer);
                 if (!theclosestFlex.classList.contains("completed")) {
-                    
-                    let task_content = theclosestFlex.querySelector(".flex .task").textContent;
-                    let start_content = +(theclosestFlex.querySelector(".flex .startvalue").textContent.replace(":00", ""));
-                    let end_content = +(theclosestFlex.querySelector(".flex .endvalue").textContent.replace(":00", ""));
-                    document.getElementById("items").value = task_content;
-                    document.getElementById("time-start").value = start_content;
-                    document.getElementById("time-end").value = end_content;
-                    theclosestFlex.remove();
-                    task_to_Do.textContent = --task_number;
-                }
-                else{
-                    // let theclosestFlex = this.closest(".flex")
-                    let task_content = theclosestFlex.querySelector(".flex .task").textContent;
-                    let start_content = +(theclosestFlex.querySelector(".flex .startvalue").textContent.replace(":00", ""));
-                    let end_content = +(theclosestFlex.querySelector(".flex .endvalue").textContent.replace(":00", ""));
-                    document.getElementById("items").value = task_content;
-                    document.getElementById("time-start").value = start_content;
-                    document.getElementById("time-end").value = end_content;
-                    theclosestFlex.remove();
-                }
-                // if(task_to_Do.textContent<0){
 
-                // }
 
-                
+                    task_to_Do.textContent = --pending_task_number;
+                }
+
+
+
+
 
             }
 
@@ -222,7 +336,9 @@ function create() {
 }
 
 const approvedformat = () => {
-    if (Task.value && Timestart.value && TimeEnd.value) {
+    timeend();
+    timestart();
+    if (Task.value && Timestart.value && TimeEnd.value && proceed1 == true && proceed2 == true) {
         create();
     }
     else {
@@ -252,6 +368,11 @@ document.addEventListener("keydown", (e) => {
         console.log(e.target)
     }
 })
+
+let a = 10
+let b = 2
+let c = 10 % 2
+console.log(c)
 
 
 
