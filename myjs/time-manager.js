@@ -14,7 +14,7 @@ let sidebarcont = document.querySelectorAll(".side-bar .max .link");
 
 let timedistance,
     timecount,
-    
+
     time,
     proceed1,
     proceed2;
@@ -120,7 +120,7 @@ function create() {
         let minutes = parseInt((countdownValue % 3600) / 60).toString().padStart(2, "0");
         let seconds = parseInt(countdownValue % 60).toString().padStart(2, "0");
 
-        
+
         collapP3.textContent = `Time left: ${hours}h ${minutes}m ${seconds}s`;
         Time_span.textContent = `${hours}h ${minutes}m ${seconds}s`;
 
@@ -133,9 +133,9 @@ function create() {
         }
     }
 
-     let countdownTimer = setInterval(updateCountdown, 1000);
+    let countdownTimer = setInterval(updateCountdown, 1000);
 
-
+    console.log(countdownTimer)
 
 
     //COLLAPSE MAIN DIV.....
@@ -202,7 +202,7 @@ function create() {
 
 
 
-   
+
 
 
 
@@ -247,13 +247,13 @@ function create() {
     deletekey.appendChild(editlogo);
     newli.appendChild(deletekey);
     let btnCont = document.getElementsByClassName("allbtns");
-   
-    
+
+
     let deletebtn = document.getElementsByClassName("fa-trash");
-   
+
 
     let checkedbtn = document.getElementsByClassName("fa-circle-check");
-    
+
 
     let editbtn = document.getElementsByClassName("fa-pen-to-square");
 
@@ -265,10 +265,12 @@ function create() {
     let i;
 
     for (i = 0; i < btnCont.length; i++) {
-        
+
         deletebtn[i].onclick = function () {
             let theclosestFlex = this.closest(".flex");
-           
+            //let taskCountdownTimer = theclosestFlex.countdownTimer;
+            //clearInterval(countdownTimer);
+
 
 
             if (!theclosestFlex.classList.contains("completed")) {
@@ -288,15 +290,19 @@ function create() {
         checkedbtn[i].onclick = function () {
             let theclosestFlex = this.closest(".flex");
             let thetask = theclosestFlex.querySelector(".flex .task");
+            //let taskCountdownTimer = theclosestFlex.countdownTimer;
+            //console.log(taskCountdownTimer)
+
+            //clearInterval(countdownTimer);
             if (!theclosestFlex.classList.contains("completed")) {
                 thetask.style.textDecoration = "line-through";
                 thetask.style.color = "green";
                 theclosestFlex.classList.add("completed");
                 task_to_Do.textContent = --pending_task_number;
-                
+
                 theclosestFlex.querySelector(".flex .time-count").remove()
                 theclosestFlex.querySelector(".flex .timevalue").remove()
-               
+
             }
         }
 
@@ -310,6 +316,9 @@ function create() {
                 let task_content = theclosestFlex.querySelector(".flex .task").textContent;
                 let start_content = +(start_val.replace(":00", ""));
                 let end_content = +(end_val.replace(":00", ""));
+                //let taskCountdownTimer = theclosestFlex.countdownTimer;
+
+                //clearInterval(countdownTimer);
                 document.getElementById("items").value = task_content;
                 document.getElementById("time-start").value = start_content;
                 document.getElementById("time-end").value = end_content;
@@ -368,7 +377,7 @@ itemAdder.addEventListener("click", () => {
 document.addEventListener("keydown", (e) => {
     if (e.key == "Enter") {
         approvedformat();
-       
+
     }
 })
 
