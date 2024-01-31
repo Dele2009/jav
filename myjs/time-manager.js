@@ -23,9 +23,9 @@ let timedistance,
     timecount,
     start_val,
     end_val;
-    
 
-    let proceed;
+
+let proceed;
 
 
 //FUNCTIONAL INTERVAL FOR EVALUATING THE NUMBER OF PENDING AND COMPLETED TASK
@@ -86,6 +86,7 @@ function validateTimeInput(timeinput, messageToDisplay) {
     }
     else {
         timeinput.style.border = "none";
+        timeinput.style.borderLeft = "1px solid orange";
         messageToDisplay.style.display = "none";
         return true;
     }
@@ -94,7 +95,7 @@ function validateTimeInput(timeinput, messageToDisplay) {
 function timeformat() {
     let startTime = parseInt(Timestart.value);
     let endTime = parseInt(TimeEnd.value);
-    if ( startTime > endTime ) {
+    if (startTime > endTime) {
         errormess2.style.display = "flex";
         return false;
     }
@@ -256,9 +257,9 @@ function create() {
     let editlogo = document.createElement("i");
     editlogo.className = "fa-solid fa-pen-to-square";
     editlogo.title = "Edit task";
-
-    deletekey.appendChild(delelogo);
+    
     deletekey.appendChild(checklogo);
+    deletekey.appendChild(delelogo);
     deletekey.appendChild(editlogo);
     newli.appendChild(deletekey);
 
@@ -343,7 +344,7 @@ function Edit_Task(theclosestFlex) {
 function approvedformat() {
     let TimeStartValid = validateTimeInput(Timestart, errormess);
     let TimeEndValid = validateTimeInput(TimeEnd, errormess);
-    let timeformatvalid=timeformat()
+    let timeformatvalid = timeformat()
 
     if (Task.value && Timestart.value && TimeEnd.value && TimeStartValid && TimeEndValid && timeformatvalid) {
         create();
