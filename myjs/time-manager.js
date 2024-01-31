@@ -300,7 +300,7 @@ function Check_Task_Done(theclosestFlex) {
 
     setTimeout(() => {
         theclosestFlex.remove();
-    }, 10000)
+    }, 30000)
 }
 
 function Edit_Task(theclosestFlex) {
