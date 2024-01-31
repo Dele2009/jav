@@ -355,10 +355,6 @@ itemAdder.addEventListener("click", () => {
 document.addEventListener("keydown", (e) => {
     if (e.key == "Enter") {
         approvedformat();
-<<<<<<< HEAD
-
-=======
->>>>>>> btns
     }
 })
 
