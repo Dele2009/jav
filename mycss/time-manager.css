@@ -40,7 +40,7 @@ body {
 
 .container-list {
     width: 100%;
-    position: relative;
+    
     display: flex;
     align-items: center;
     justify-content: center;
@@ -62,11 +62,15 @@ body {
 
 .task-div {
     max-height: 250px;
-    width: 80%;
+    width: 90%;
     overflow-y: auto;
     margin: 20px;
     padding: 10px;
 
+}
+#mytextshow{
+    padding: 0;
+    margin: 0;
 }
 
 .flex {
@@ -81,32 +85,25 @@ body {
 
 
 }
-
-.fa-trash {
-    color: white;
-    background: red;
-    padding: 10px;
+.fa-solid {
+    background: ;
+    padding: 5px;
     border-radius: 10px;
     margin: 5px;
     cursor: pointer;
+    font-size: 23px;
+}
+
+.fa-trash {
+    color: red;
 }
 
 .fa-circle-check {
-    color: white;
-    background: green;
-    padding: 10px;
-    border-radius: 10px;
-    margin: 5px;
-    cursor: pointer;
+    color: green;
 }
 
 .fa-pen-to-square {
-    color: white;
-    background: gold;
-    padding: 10px;
-    border-radius: 10px;
-    margin: 5px;
-    cursor: pointer;
+    color:  gold;
 }
 
 .head {
@@ -181,11 +178,6 @@ body {
     color: white;
     visibility: hidden;
     position: absolute;
-    /* transition: all 900ms 0s ease; */
-
-
-
-
     text-decoration: none;
 
     text-align: center;
@@ -208,6 +200,11 @@ body {
 .time-ing,
 .time-count {
     font-family: 'Orbitron', sans-serif;
+}
+.timevalue{
+    font-size: 16px;
+    min-width: 145px;
+   
 }
 
 .time-ing {
@@ -251,11 +248,19 @@ body {
 }
 .task{
     font-weight: 500;
+    color: rgb(254, 187, 63);
     text-transform: capitalize;
+    min-width: 130px;
+    text-align: center;
+    overflow-x: auto;
+    max-width: 130px;
+}
+.noshow{
+    display: none;
 }
 @media (max-width:1300px) {
     .main-content {
-        width: 75%;
+        width: 70%;
 
     }
     
@@ -276,7 +281,7 @@ body {
     }
 
     .main-content {
-        width: 80%;
+        width: 70%;
 
     }
     .flex {
@@ -285,7 +290,7 @@ body {
     }
 
     .fa-solid {
-        font-size: 15px;
+        font-size: 18px;
     }
 
     .timevalue{
@@ -313,19 +318,13 @@ body {
 
     }
 
-    .flex {
-       
-       
-    }
-
     .fa-solid {
-        font-size: 10px;
+       
+        margin: 0px;
     }
-    .bi-hourglass-split{
-        
-    }
+    
 }
-@media (max-width:400px){
+@media (max-width:430px){
     .flex {
         font-size: 20px;
         flex-direction: column;
@@ -333,12 +332,23 @@ body {
     .task{
        margin: 10px;
     }
-    .time-ing {
+    .time-ing, .time-ing~ button {
        font-size: 15px;
     }
 
     .fa-solid {
         font-size: 20px;
         margin: 15px 10px;
+    }
+    .task-div {
+        max-height: 360px;
+       
+
+
+    }
+    .main-content {
+        position: fixed;
+        bottom: 25px;
+
     }
 }

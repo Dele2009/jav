@@ -3,7 +3,7 @@ let Timestart = document.getElementById("time-start");
 let TimeEnd = document.getElementById("time-end");
 let myOl = document.getElementById("mytextshow");
 const itemAdder = document.getElementById("addItem");
-let task_to_Do = document.getElementById("task-count");
+let TaskCounter = document.getElementById("task-count");
 let errormess = document.getElementById("error");
 let errormess2 = document.getElementById("error2");
 
@@ -12,17 +12,39 @@ let closebtn = document.getElementById("close");
 let sidebar = document.querySelector(".side-bar");
 let sidebarcont = document.querySelectorAll(".side-bar .max .link");
 
+
+
+
+let countdownTimers = [];
+
+
 let timedistance,
     timecount,
-    
-    time,
+    start_val,
+    end_val,
     proceed1,
     proceed2;
 
 
-//MENU BAR OFFCANVAS TO OPEN AND CLOSE.........  
+//FUNCTIONAL INTERVAL FOR EVALUATING THE NUMBER OF PENDING AND COMPLETED TASK
+function updateTaskCount() {
+    let completedtask = document.getElementsByClassName("completed");
+    completedcount = completedtask.length;
 
-openbtn.addEventListener("click", () => {
+    let task_number = document.getElementsByClassName("flex");
+    pending_task_number = task_number.length;
+
+    TaskCounter.textContent = pending_task_number - completedcount;
+}
+setInterval(updateTaskCount, 500);
+
+
+
+
+
+//MENU BAR OFFCANVAS TO OPEN AND CLOSE......... 
+
+function open_side_bar() {
     closebtn.style.display = "inline-block";
     sidebar.style.width = "320px";
 
@@ -33,9 +55,9 @@ openbtn.addEventListener("click", () => {
         a.style.visibility = "visible";
         a.style.position = "relative";
     })
-})
+}
 
-closebtn.addEventListener("click", () => {
+function close_side_bar() {
     closebtn.style.display = "none";
     sidebar.style.width = "0px";
     sidebar.style.overflowY = "hidden";
@@ -46,40 +68,26 @@ closebtn.addEventListener("click", () => {
         a.style.visibility = "hidden";
         a.style.position = "absolute";
     })
-})
+}
+
+
 
 
 
 //TIME INPUT VALIDATIONS FOR START AND END.......
-function timestart() {
-    let startTime = parseInt(Timestart.value);
+function validateTimeInput(timeinput, messageToDisplay) {
+    let startTime = parseInt(timeinput.value);
     if (isNaN(startTime) || startTime > 24) {
-        Timestart.style.border = "3px solid red";
-        proceed1 = false;
-        errormess.style.display = "block";
+        timeinput.style.border = "3px solid red";
+        messageToDisplay.style.display = "block";
+        return false;
     }
     else {
-        Timestart.style.border = "";
-        proceed1 = true;
-        errormess.style.display = "none";
+        timeinput.style.border = "";
+        messageToDisplay.style.display = "none";
+        return true;
     }
 }
-
-function timeend() {
-    let endTime = parseInt(TimeEnd.value);
-    if (isNaN(endTime) || endTime > 24) {
-
-        TimeEnd.style.border = "3px solid red";
-        proceed2 = false;
-        errormess2.style.display = "block";
-    }
-    else {
-        TimeEnd.style.border = "";
-        proceed2 = true;
-        errormess2.style.display = "none";
-    }
-}
-
 
 
 
@@ -88,55 +96,45 @@ function create() {
     let newli = document.createElement("li");
     let mylicontent = document.createTextNode(Task.value);
     let taskdiv = document.createElement("span");
-    taskdiv.className = "task"
+    taskdiv.className = "task";
     let timediv = document.createElement("span");
-    timediv.className = "time-flex"
-
-
-
-
+    timediv.className = "time-flex";
 
     let Time_span = document.createElement("span");
-    Time_span.className = "timevalue";
+    Time_span.className = "timevalue timp-up";
     let enddiv = document.createElement("span");
-    enddiv.className = "endvalue"
+    enddiv.className = "endvalue";
 
 
-    //COLLAPSE TIME-RECORDING CREATION SYSTEM......
-
-    let start_val = Timestart.value + ":00";
-    let end_val = TimeEnd.value + ":00";
+    //COLLAPSE TIME-RECORDING SYSTEM......
+    start_val = Timestart.value + ":00";
+    end_val = TimeEnd.value + ":00";
 
     timedistance = TimeEnd.value - Timestart.value;
 
 
-
-
-
-
-    let countdownValue = timedistance * 60 * 60; //To Convert the hours to seconds.......
+    //To Convert the hours to seconds.......
+    let countdownValue = timedistance * 60 * 60;
     function updateCountdown() {
         let hours = parseInt(countdownValue / 3600).toString().padStart(2, "0");
         let minutes = parseInt((countdownValue % 3600) / 60).toString().padStart(2, "0");
         let seconds = parseInt(countdownValue % 60).toString().padStart(2, "0");
 
-        
-        collapP3.textContent = `Time left: ${hours}h ${minutes}m ${seconds}s`;
-        Time_span.textContent = `${hours}h ${minutes}m ${seconds}s`;
+
+        collapP3.textContent = `Time left: ${hours}h : ${minutes}m : ${seconds}s`;
+        Time_span.textContent = `${hours}h : ${minutes}m : ${seconds}s`;
 
         if (countdownValue <= 0) {
-            clearInterval(countdownTimer);
+            clearInterval(newli.countdownTimer);
             collapP3.textContent = "Time's up!";
             Time_span.textContent = "Time's up!";
         } else {
             countdownValue--;
         }
     }
-
-     let countdownTimer = setInterval(updateCountdown, 1000);
-
-
-
+    newli.countdownTimer = setInterval(updateCountdown, 1000);
+    countdownTimers.push(newli.countdownTimer);
+    newli.dataset.index = countdownTimers.length - 1;
 
     //COLLAPSE MAIN DIV.....
     let collapDiv = document.createElement("div");
@@ -161,6 +159,8 @@ function create() {
     let collapDivli1 = document.createElement("li");
     let collapDivli2 = document.createElement("li");
     let collapDivli3 = document.createElement("li");
+    let collapDivli4 = document.createElement("li");
+    let collapDivli5 = document.createElement("li");
 
     //FISRT COLLAPSE TEXT.......
     let collapP = document.createElement("a");
@@ -172,18 +172,23 @@ function create() {
 
     //THIRD COLLAPSE TEXT.......
     let collapP3 = document.createElement("a");
-    collapP3.className = "dropdown-item time-count";
+    collapP3.className = "dropdown-item  timp-up";
+
+    let collapP4 = document.createElement("a");
+    collapP4.className = "dropdown-item get-start-time";
+
+    let collapP5 = document.createElement("a");
+    collapP5.className = "dropdown-item get-start-end";
 
     let textP1 = document.createTextNode(`Your selected time is ${start_val}--${end_val}`)
     let textP2 = document.createTextNode(`You have ${timedistance}Hour to complete this task`)
+    let textP3 = document.createTextNode(`${start_val}`);
+    let textP4 = document.createTextNode(`${end_val}`);
 
     collapP.appendChild(textP1);
     collapP2.appendChild(textP2);
-
-
-
-
-
+    collapP4.appendChild(textP3);
+    collapP5.appendChild(textP4);
 
     //COLLAPSE COMPONENT APPENDING
     collapDiv.appendChild(collapDivbtn);
@@ -192,28 +197,21 @@ function create() {
     collapDivUl.appendChild(collapDivli1);
     collapDivUl.appendChild(collapDivli2);
     collapDivUl.appendChild(collapDivli3);
+    collapDivUl.appendChild(collapDivli4);
+    collapDivUl.appendChild(collapDivli5);
+
     collapDivli1.appendChild(collapP);
     collapDivli2.appendChild(collapP2);
     collapDivli3.appendChild(collapP3);
-    collapDivli3.className = "time-count";
+    collapDivli3.className = "time-count"
+
+    collapDivli4.appendChild(collapP4);
+    collapDivli4.className = "noshow";
+    collapDivli5.appendChild(collapP5);
+    collapDivli5.className = "noshow";
 
 
-
-
-
-
-   
-
-
-
-
-
-
-
-
-
-
-
+    //TASK CONTENT DINAMIC CREATIVE THROUGH APPENDING AND CLASSNAMES
     taskdiv.appendChild(mylicontent);
     timediv.appendChild(Time_span);
     timediv.appendChild(collapDiv);
@@ -221,7 +219,6 @@ function create() {
 
 
     newli.appendChild(taskdiv);
-
     newli.appendChild(timediv);
     newli.className = "flex";
 
@@ -233,115 +230,105 @@ function create() {
 
     //ICON CREATION SYSTEM
     let deletekey = document.createElement("span");
-
     deletekey.className = "allbtns";
-    let delelogo = document.createElement("i");
-    delelogo.className = "fa-solid fa-trash";
+    //FONT-AWESOME ICONS CREATED DINAMICALLY
     let checklogo = document.createElement("i");
     checklogo.className = "fa-solid fa-circle-check";
+    checklogo.title = "Check task done!";
+    let delelogo = document.createElement("i");
+    delelogo.className = "fa-solid fa-trash";
+    delelogo.title="Delete task";
     let editlogo = document.createElement("i");
     editlogo.className = "fa-solid fa-pen-to-square";
+    editlogo.title="Edit task";
 
     deletekey.appendChild(delelogo);
     deletekey.appendChild(checklogo);
     deletekey.appendChild(editlogo);
     newli.appendChild(deletekey);
-    let btnCont = document.getElementsByClassName("allbtns");
-   
-    
-    let deletebtn = document.getElementsByClassName("fa-trash");
-   
 
-    let checkedbtn = document.getElementsByClassName("fa-circle-check");
-    
-
-    let editbtn = document.getElementsByClassName("fa-pen-to-square");
-
-
-
-
-    pending_task_number = btnCont.length;
-    task_to_Do.textContent = pending_task_number;
-    let i;
-
-    for (i = 0; i < btnCont.length; i++) {
-        
-        deletebtn[i].onclick = function () {
-            let theclosestFlex = this.closest(".flex");
-           
-
-
-            if (!theclosestFlex.classList.contains("completed")) {
-                theclosestFlex.remove();
-                task_to_Do.textContent = --pending_task_number;
-            }
-            else {
-                theclosestFlex.remove();
-            }
-
-
-
-
-        }
-
-
-        checkedbtn[i].onclick = function () {
-            let theclosestFlex = this.closest(".flex");
-            let thetask = theclosestFlex.querySelector(".flex .task");
-            if (!theclosestFlex.classList.contains("completed")) {
-                thetask.style.textDecoration = "line-through";
-                thetask.style.color = "green";
-                theclosestFlex.classList.add("completed");
-                task_to_Do.textContent = --pending_task_number;
-                
-                theclosestFlex.querySelector(".flex .time-count").remove()
-                theclosestFlex.querySelector(".flex .timevalue").remove()
-               
-            }
-        }
-
-
-        editbtn[i].onclick = function () {
-            if (Task.value) {
-                Task.focus();
-            }
-            else {
-                let theclosestFlex = this.closest(".flex");
-                let task_content = theclosestFlex.querySelector(".flex .task").textContent;
-                let start_content = +(start_val.replace(":00", ""));
-                let end_content = +(end_val.replace(":00", ""));
-                document.getElementById("items").value = task_content;
-                document.getElementById("time-start").value = start_content;
-                document.getElementById("time-end").value = end_content;
-                theclosestFlex.remove();
-                theclosestFlex.querySelector(".flex .time-count").remove()
-                theclosestFlex.querySelector(".flex .timevalue").remove()
-                if (!theclosestFlex.classList.contains("completed")) {
-
-
-                    task_to_Do.textContent = --pending_task_number;
-                }
-
-
-
-
-
-            }
-
-        }
-
-    }
-
-
-
-
+    Action_btns();
 
 }
 
+function Action_btns() {
+    let btnCont = document.getElementsByClassName("allbtns");
+    let deletebtn = document.getElementsByClassName("fa-trash");
+    let checkedbtn = document.getElementsByClassName("fa-circle-check");
+    let editbtn = document.getElementsByClassName("fa-pen-to-square");
+
+    for (let i = 0; i < btnCont.length; i++) {
+
+        deletebtn[i].addEventListener("click", (e) => {
+            let theclosestFlex = e.target.closest(".flex");
+            deletetask(theclosestFlex)
+        })
+
+
+        checkedbtn[i].addEventListener("click", (e) => {
+            let theclosestFlex = e.target.closest(".flex");
+            Check_Task_Done(theclosestFlex)
+            console.log(e)
+        })
+
+
+        editbtn[i].addEventListener("click", (e) => {
+            let theclosestFlex = e.target.closest(".flex");
+            Edit_Task(theclosestFlex)
+        })
+
+    }
+}
+
+function deletetask(theclosestFlex) {
+    let taskCountdownTimer = countdownTimers[theclosestFlex.dataset.index];
+    clearInterval(taskCountdownTimer);
+    theclosestFlex.remove();
+}
+
+function Check_Task_Done(theclosestFlex) {
+    let thetask = theclosestFlex.querySelector(".flex .task");
+    let done = theclosestFlex.getElementsByClassName("timp-up");
+    let taskCountdownTimer = countdownTimers[theclosestFlex.dataset.index];
+    clearInterval(taskCountdownTimer);
+
+    done[0].textContent = "Completed";
+    done[1].textContent = "Task completed";
+    thetask.style.textDecoration = "line-through";
+    thetask.style.color = "green";
+    theclosestFlex.classList.add("completed");
+
+    setTimeout(() => {
+        theclosestFlex.remove();
+    }, 10000)
+}
+
+function Edit_Task(theclosestFlex) {
+    let taskCountdownTimer = countdownTimers[theclosestFlex.dataset.index];
+    if (Task.value && Timestart.value && TimeEnd.value) {
+        Task.focus();
+    }
+    else {
+        let task_content = theclosestFlex.querySelector(".flex .task").textContent;
+        let start_content = +(theclosestFlex.querySelector(".get-start-time").textContent.replace(":00", ""));
+        let end_content = +(theclosestFlex.querySelector(".get-start-end").textContent.replace(":00", ""));
+
+        document.getElementById("items").value = task_content;
+        document.getElementById("time-start").value = start_content;
+        document.getElementById("time-end").value = end_content;
+        clearInterval(taskCountdownTimer);
+        theclosestFlex.remove();
+    }
+}
+
+
+
+
+
 const approvedformat = () => {
-    timeend();
-    timestart();
-    if (Task.value && Timestart.value && TimeEnd.value && proceed1 == true && proceed2 == true) {
+    let TimeStartValid = validateTimeInput(Timestart, errormess);
+    let TimeEndValid = validateTimeInput(TimeEnd, errormess2);
+    if (Task.value && Timestart.value && TimeEnd.value && TimeStartValid && TimeEndValid) {
         create();
     }
     else {
@@ -368,7 +355,21 @@ itemAdder.addEventListener("click", () => {
 document.addEventListener("keydown", (e) => {
     if (e.key == "Enter") {
         approvedformat();
-       
     }
 })
+
+openbtn.addEventListener("click", open_side_bar);
+
+closebtn.addEventListener("click", close_side_bar);
+
+
+
+
+
+
+
+
+
+
+
 
