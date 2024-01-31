@@ -7,6 +7,7 @@ let TaskCounter = document.getElementById("task-count");
 let errormess = document.getElementById("error");
 let errormess2 = document.getElementById("error2");
 
+
 let openbtn = document.querySelector("#open");
 let closebtn = document.getElementById("close");
 let sidebar = document.querySelector(".side-bar");
@@ -21,9 +22,10 @@ let countdownTimers = [];
 let timedistance,
     timecount,
     start_val,
-    end_val,
-    proceed1,
-    proceed2;
+    end_val;
+    
+
+    let proceed;
 
 
 //FUNCTIONAL INTERVAL FOR EVALUATING THE NUMBER OF PENDING AND COMPLETED TASK
@@ -78,13 +80,26 @@ function close_side_bar() {
 function validateTimeInput(timeinput, messageToDisplay) {
     let startTime = parseInt(timeinput.value);
     if (isNaN(startTime) || startTime > 24) {
-        timeinput.style.border = "3px solid red";
+        timeinput.style.border = "2px solid red";
         messageToDisplay.style.display = "block";
         return false;
     }
     else {
-        timeinput.style.border = "";
+        timeinput.style.border = "none";
         messageToDisplay.style.display = "none";
+        return true;
+    }
+}
+
+function timeformat() {
+    let startTime = parseInt(Timestart.value);
+    let endTime = parseInt(TimeEnd.value);
+    if ( startTime > endTime ) {
+        errormess2.style.display = "flex";
+        return false;
+    }
+    else {
+        errormess2.style.display = "none";
         return true;
     }
 }
@@ -237,10 +252,10 @@ function create() {
     checklogo.title = "Check task done!";
     let delelogo = document.createElement("i");
     delelogo.className = "fa-solid fa-trash";
-    delelogo.title="Delete task";
+    delelogo.title = "Delete task";
     let editlogo = document.createElement("i");
     editlogo.className = "fa-solid fa-pen-to-square";
-    editlogo.title="Edit task";
+    editlogo.title = "Edit task";
 
     deletekey.appendChild(delelogo);
     deletekey.appendChild(checklogo);
@@ -325,10 +340,12 @@ function Edit_Task(theclosestFlex) {
 
 
 
-const approvedformat = () => {
+function approvedformat() {
     let TimeStartValid = validateTimeInput(Timestart, errormess);
-    let TimeEndValid = validateTimeInput(TimeEnd, errormess2);
-    if (Task.value && Timestart.value && TimeEnd.value && TimeStartValid && TimeEndValid) {
+    let TimeEndValid = validateTimeInput(TimeEnd, errormess);
+    let timeformatvalid=timeformat()
+
+    if (Task.value && Timestart.value && TimeEnd.value && TimeStartValid && TimeEndValid && timeformatvalid) {
         create();
     }
     else {
