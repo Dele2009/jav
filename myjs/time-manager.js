@@ -122,7 +122,7 @@ function create() {
     enddiv.className = "endvalue";
 
 
-    //COLLAPSE TIME-RECORDING SYSTEM......
+    //DROPDOWN TIME-RECORDING SYSTEM......
     start_val = Timestart.value + ":00";
     end_val = TimeEnd.value + ":00";
 
@@ -131,18 +131,19 @@ function create() {
 
     //To Convert the hours to seconds.......
     let countdownValue = timedistance * 60 * 60;
+    //FUNCTION TO UPDATE THE TIME FOR EACH TASK 
     function updateCountdown() {
         let hours = parseInt(countdownValue / 3600).toString().padStart(2, "0");
         let minutes = parseInt((countdownValue % 3600) / 60).toString().padStart(2, "0");
         let seconds = parseInt(countdownValue % 60).toString().padStart(2, "0");
 
 
-        collapP3.textContent = `Time left: ${hours}h : ${minutes}m : ${seconds}s`;
+        DropdownP3.textContent = `Time left: ${hours}h : ${minutes}m : ${seconds}s`;
         Time_span.textContent = `${hours}h : ${minutes}m : ${seconds}s`;
 
         if (countdownValue <= 0) {
             clearInterval(newli.countdownTimer);
-            collapP3.textContent = "Time's up!";
+            DropdownP3.textContent = "Time's up!";
             Time_span.textContent = "Time's up!";
         } else {
             countdownValue--;
@@ -152,85 +153,89 @@ function create() {
     countdownTimers.push(newli.countdownTimer);
     newli.dataset.index = countdownTimers.length - 1;
 
-    //COLLAPSE MAIN DIV.....
-    let collapDiv = document.createElement("div");
-    collapDiv.className = "dropdown";
+    //DIANAMIC BUILD OF BOOTSTARP 
 
-    //COLLAPSE BUTTON......
-    let collapDivbtn = document.createElement("button");
-    collapDivbtn.className = "btn btn-secondary dropdown-toggle";
-    collapDivbtn.type = "button";
-    collapDivbtn.setAttribute("data-bs-toggle", "dropdown");
+    //DROPDOWN MAIN DIV.....
+    let DropdownDiv = document.createElement("div");
+    DropdownDiv.className = "dropdown";
 
-    //COLLAPSE_BTN LOGO......
-    let collapDivbtnlogo = document.createElement("i");
-    collapDivbtnlogo.className = "bi bi-hourglass-split";
-    collapDivbtn.appendChild(collapDivbtnlogo);
+    //DROPDOWN BUTTON......
+    let DropdownDivbtn = document.createElement("button");
+    DropdownDivbtn.className = "btn btn-secondary dropdown-toggle";
+    DropdownDivbtn.type = "button";
+    DropdownDivbtn.dataset.bsToggle = "dropdown";
 
-    //COLLAPSE UL.......
-    let collapDivUl = document.createElement("ul");
-    collapDivUl.className = "dropdown-menu";
+    //DROPDOWN_BTN LOGO......
+    let DropdownDivbtnlogo = document.createElement("i");
+    DropdownDivbtnlogo.className = "bi bi-hourglass-split";
+    DropdownDivbtn.appendChild(DropdownDivbtnlogo);
 
-    //COLLAPSE LI.......
-    let collapDivli1 = document.createElement("li");
-    let collapDivli2 = document.createElement("li");
-    let collapDivli3 = document.createElement("li");
-    let collapDivli4 = document.createElement("li");
-    let collapDivli5 = document.createElement("li");
+    //DROPDOWN UL.......
+    let DropdownDivUl = document.createElement("ul");
+    DropdownDivUl.className = "dropdown-menu";
 
-    //FISRT COLLAPSE TEXT.......
-    let collapP = document.createElement("a");
-    collapP.className = "dropdown-item";
+    //DROPDOWN LI.......
+    let DropdownDivli1 = document.createElement("li");
+    let DropdownDivli2 = document.createElement("li");
+    let DropdownDivli3 = document.createElement("li");
+    let DropdownDivli4 = document.createElement("li");
+    let DropdownDivli5 = document.createElement("li");
 
-    //SECOND COLLAPSE TEXT.......
-    let collapP2 = document.createElement("a");
-    collapP2.className = "dropdown-item";
+    //FISRT DROPDOWN TEXT.......
+    let DropdownP = document.createElement("a");
+    DropdownP.className = "dropdown-item";
 
-    //THIRD COLLAPSE TEXT.......
-    let collapP3 = document.createElement("a");
-    collapP3.className = "dropdown-item  timp-up";
+    //SECOND DROPDOWN TEXT.......
+    let DropdownP2 = document.createElement("a");
+    DropdownP2.className = "dropdown-item";
 
-    let collapP4 = document.createElement("a");
-    collapP4.className = "dropdown-item get-start-time";
+    //THIRD DROPDOWN TEXT.......
+    let DropdownP3 = document.createElement("a");
+    DropdownP3.className = "dropdown-item  timp-up";
 
-    let collapP5 = document.createElement("a");
-    collapP5.className = "dropdown-item get-start-end";
+    //FOURTH DROPDOWN TEXT BUT HIDDEN.......
+    let DropdownP4 = document.createElement("a");
+    DropdownP4.className = "dropdown-item get-start-time";
+
+    //FIFTH DROPDOWN TEXT BUT HIDDEN.......
+    let DropdownP5 = document.createElement("a");
+    DropdownP5.className = "dropdown-item get-start-end";
 
     let textP1 = document.createTextNode(`Your selected time is ${start_val}--${end_val}`)
     let textP2 = document.createTextNode(`You have ${timedistance}Hour to complete this task`)
     let textP3 = document.createTextNode(`${start_val}`);
     let textP4 = document.createTextNode(`${end_val}`);
 
-    collapP.appendChild(textP1);
-    collapP2.appendChild(textP2);
-    collapP4.appendChild(textP3);
-    collapP5.appendChild(textP4);
+    DropdownP.appendChild(textP1);
+    DropdownP2.appendChild(textP2);
+    DropdownP4.appendChild(textP3);
+    DropdownP5.appendChild(textP4);
 
-    //COLLAPSE COMPONENT APPENDING
-    collapDiv.appendChild(collapDivbtn);
-    collapDiv.appendChild(collapDivUl);
+    //DROPDOWN COMPONENT APPENDING
+    DropdownDiv.appendChild(DropdownDivbtn);
+    DropdownDiv.appendChild(DropdownDivUl);
 
-    collapDivUl.appendChild(collapDivli1);
-    collapDivUl.appendChild(collapDivli2);
-    collapDivUl.appendChild(collapDivli3);
-    collapDivUl.appendChild(collapDivli4);
-    collapDivUl.appendChild(collapDivli5);
+    DropdownDivUl.appendChild(DropdownDivli1);
+    DropdownDivUl.appendChild(DropdownDivli2);
+    DropdownDivUl.appendChild(DropdownDivli3);
+    DropdownDivUl.appendChild(DropdownDivli4);
+    DropdownDivUl.appendChild(DropdownDivli5);
 
-    collapDivli1.appendChild(collapP);
-    collapDivli2.appendChild(collapP2);
-    collapDivli3.appendChild(collapP3);
-    collapDivli3.className = "time-count"
+    DropdownDivli1.appendChild(DropdownP);
+    DropdownDivli2.appendChild(DropdownP2);
+    DropdownDivli3.appendChild(DropdownP3);
+    DropdownDivli3.className = "time-count"
 
-    collapDivli4.appendChild(collapP4);
-    collapDivli4.className = "noshow";
-    collapDivli5.appendChild(collapP5);
-    collapDivli5.className = "noshow";
+    DropdownDivli4.appendChild(DropdownP4);
+    DropdownDivli4.className = "noshow";
+    DropdownDivli5.appendChild(DropdownP5);
+    DropdownDivli5.className = "noshow";
 
 
-    //TASK CONTENT DINAMIC CREATIVE THROUGH APPENDING AND CLASSNAMES
+    //TASK CONTENT DINAMIC CREATION, APPENDING AND CLASSNAMES
     taskdiv.appendChild(mylicontent);
     timediv.appendChild(Time_span);
-    timediv.appendChild(collapDiv);
+    timediv.appendChild(DropdownDiv);
 
 
 
@@ -245,8 +250,9 @@ function create() {
 
 
     //ICON CREATION SYSTEM
-    let deletekey = document.createElement("span");
-    deletekey.className = "allbtns";
+    let actionBtnDiv = document.createElement("span");
+    actionBtnDiv.className = "allbtns";
+
     //FONT-AWESOME ICONS CREATED DINAMICALLY
     let checklogo = document.createElement("i");
     checklogo.className = "fa-solid fa-circle-check";
@@ -257,12 +263,13 @@ function create() {
     let editlogo = document.createElement("i");
     editlogo.className = "fa-solid fa-pen-to-square";
     editlogo.title = "Edit task";
-    
-    deletekey.appendChild(checklogo);
-    deletekey.appendChild(delelogo);
-    deletekey.appendChild(editlogo);
-    newli.appendChild(deletekey);
 
+    actionBtnDiv.appendChild(checklogo);
+    actionBtnDiv.appendChild(delelogo);
+    actionBtnDiv.appendChild(editlogo);
+    newli.appendChild(actionBtnDiv);
+
+    //FUNCTION INVOCATION TO CALL THE ACTION-BUTTONS -ON- CREATION
     Action_btns();
 
 }
@@ -277,20 +284,19 @@ function Action_btns() {
 
         deletebtn[i].addEventListener("click", (e) => {
             let theclosestFlex = e.target.closest(".flex");
-            deletetask(theclosestFlex)
+            deletetask(theclosestFlex);
         })
 
 
         checkedbtn[i].addEventListener("click", (e) => {
             let theclosestFlex = e.target.closest(".flex");
-            Check_Task_Done(theclosestFlex)
-            console.log(e)
+            Check_Task_Done(theclosestFlex);
         })
 
 
         editbtn[i].addEventListener("click", (e) => {
             let theclosestFlex = e.target.closest(".flex");
-            Edit_Task(theclosestFlex)
+            Edit_Task(theclosestFlex);
         })
 
     }
