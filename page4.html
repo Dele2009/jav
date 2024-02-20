@@ -229,7 +229,7 @@
 
                 }
                 else {
-                    performcalc(i, a, b, c, d)
+                    performcalc(i, a, b, c, d);
                     c.style.color = 'black';
                 }
 
@@ -281,23 +281,7 @@
 
 
 
-        // function minus() {
 
-        //     c = a - b
-        //     d.innerHTML = `-`;
-        //     mistakes()
-
-        // }
-        // function divide() {
-
-
-
-        // }
-        // function multiply() {
-
-
-
-        // }
 
 
 
@@ -324,33 +308,52 @@
             const presentyear = new Date().getFullYear();
             let userage = presentyear - birthyear;
             let retire = 65 - userage;
+            let answer= document.getElementById('pl');
 
             if (!birthyear || isNaN(birthyear)) {
-                document.getElementById('pl').innerHTML = `enter a year`;
-                document.getElementById('pl').style.color = 'red';
-                document.getElementById('pl').style.visibility = 'visible';
-
+               
+                validationresponse(
+                    `enter a year`,
+                    'red',
+                    answer
+                   
+                )
 
 
             }
             else if (birthyear > presentyear) {
-                document.getElementById('pl').innerHTML = `Year invalid`;
-                document.getElementById('pl').style.color = 'yellow';
-                document.getElementById('pl').style.visibility = 'visible';
+               
+                validationresponse(
+                    `Year invalid`, 
+                    'yellow',
+                    answer
+                   
+                )
             }
             else if (birthyear <= 1958) {
-                document.getElementById('pl').innerHTML = `Year invalid/retirement age met  please go and retire `;
-                document.getElementById('pl').style.color = 'yellow';
-                document.getElementById('pl').style.visibility = 'visible';
+               
+                validationresponse(
+                    `Year invalid/retirement age met  please go and retire `, 
+                    'yellow',
+                    answer
+                )
+                
             }
             else {
-
-                document.getElementById('pl').innerHTML = `You have ${retire}year(s) until you are able to retire`;
-                document.getElementById('pl').style.color = 'white';
-                document.getElementById('pl').style.visibility = 'visible';
+                validationresponse(
+                    `You have ${retire}year(s) until you are able to retire`, 
+                    'white',
+                    answer
+                )
             }
 
 
+        }
+
+        function validationresponse(response, color,outputelement) {
+            outputelement.innerHTML = response;
+            outputelement.style.color = color;
+            outputelement.style.visibility = "visible";
         }
     </script>
 

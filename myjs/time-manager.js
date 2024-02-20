@@ -31,10 +31,10 @@ let proceed;
 //FUNCTIONAL INTERVAL FOR EVALUATING THE NUMBER OF PENDING AND COMPLETED TASK
 function updateTaskCount() {
     let completedtask = document.getElementsByClassName("completed");
-    completedcount = completedtask.length;
+    let completedcount = completedtask.length;
 
     let task_number = document.getElementsByClassName("flex");
-    pending_task_number = task_number.length;
+    let pending_task_number = task_number.length;
 
     TaskCounter.textContent = pending_task_number - completedcount;
 }
@@ -150,6 +150,7 @@ function create() {
         }
     }
     newli.countdownTimer = setInterval(updateCountdown, 1000);
+    console.log(countdownTimers);
     countdownTimers.push(newli.countdownTimer);
     newli.dataset.index = countdownTimers.length - 1;
 
