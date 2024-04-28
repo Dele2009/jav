@@ -123,23 +123,54 @@ function create() {
 
 
     //DROPDOWN TIME-RECORDING SYSTEM......
-    start_val = Timestart.value + ":00";
-    end_val = TimeEnd.value + ":00";
+    // start_val = Timestart.value + ":00";
+    // end_val = TimeEnd.value + ":00";
+    start_val = convertTo12HourFormat(Timestart.value)
+    end_val = convertTo12HourFormat(TimeEnd.value)
 
-    timedistance = TimeEnd.value - Timestart.value;
+    // const start = new Date(`2000-01-01T${Timestart.value}`).getTime()
+    // const end = new Date(`2000-01-01T${TimeEnd.value}`).getTime()
+
+    // timedistance = end - start;
+
+    const start = convertTo24HourFormat(Timestart.value);
+    const end = convertTo24HourFormat(TimeEnd.value);
+
+    let timedistance;
+    if (start > end) {
+        // If start time is greater than end time, adjust end time to next day
+        const endNextDay = new Date(`2000-01-02T${end}`).getTime();
+        const startCurrentDay = new Date(`2000-01-01T${start}`).getTime();
+        timedistance = endNextDay - startCurrentDay;
+    } else {
+        const startCurrentDay = new Date(`2000-01-01T${start}`).getTime();
+        const endCurrentDay = new Date(`2000-01-01T${end}`).getTime();
+        timedistance = endCurrentDay - startCurrentDay;
+    }
 
 
     //To Convert the hours to seconds.......
-    let countdownValue = timedistance * 60 * 60;
+    let countdownValue = timedistance / 1000;
+    console.log("countdownValue", "=> ", countdownValue)
     //FUNCTION TO UPDATE THE TIME FOR EACH TASK 
+
+    function checkhour(H ,M ,S){
+        let hour = parseInt(countdownValue / 3600)
+        const timeCounter = hour === 0 ? `${M}m : ${S}s` : `${H}h : ${M}m : ${S}s`;
+
+        return timeCounter
+    }
     function updateCountdown() {
         let hours = parseInt(countdownValue / 3600).toString().padStart(2, "0");
         let minutes = parseInt((countdownValue % 3600) / 60).toString().padStart(2, "0");
         let seconds = parseInt(countdownValue % 60).toString().padStart(2, "0");
 
+         const timeCounter = checkhour(hours ,minutes , seconds)
+        //  const timeCounter = hours === 0 ? `${minutes}m : ${seconds}s` : `${hours}h : ${minutes}m : ${seconds}s`
 
-        DropdownP3.textContent = `Time left: ${hours}h : ${minutes}m : ${seconds}s`;
-        Time_span.textContent = `${hours}h : ${minutes}m : ${seconds}s`;
+
+        DropdownP3.textContent = `Time left: ${timeCounter}`;
+        Time_span.textContent = `${timeCounter}`;
 
         if (countdownValue <= 0) {
             clearInterval(newli.countdownTimer);
@@ -202,8 +233,23 @@ function create() {
     let DropdownP5 = document.createElement("a");
     DropdownP5.className = "dropdown-item get-start-end";
 
+    let Hours = parseInt(countdownValue / 3600)
+    let Minutes = parseInt((countdownValue % 3600) / 60)
+
+    let taskTime;
+    // let Seconds = parseInt(countdownValue % 60)
+    // .toString().padStart(2, "0");
+
+    if(Hours === 0 ){
+        taskTime = `${Minutes}M(s)`
+    }else if(Minutes=== 0){
+        taskTime = `${Hours}H(s)`
+    }else{
+        taskTime = `${Hours}H(s) ${Minutes}M(s)`
+    }
+
     let textP1 = document.createTextNode(`Your selected time is ${start_val}--${end_val}`)
-    let textP2 = document.createTextNode(`You have ${timedistance}Hour to complete this task`)
+    let textP2 = document.createTextNode(`You have ${taskTime} to complete this task`)
     let textP3 = document.createTextNode(`${start_val}`);
     let textP4 = document.createTextNode(`${end_val}`);
 
@@ -333,12 +379,15 @@ function Edit_Task(theclosestFlex) {
     }
     else {
         let task_content = theclosestFlex.querySelector(".flex .task").textContent;
-        let start_content = +(theclosestFlex.querySelector(".get-start-time").textContent.replace(":00", ""));
-        let end_content = +(theclosestFlex.querySelector(".get-start-end").textContent.replace(":00", ""));
+        let start_content = theclosestFlex.querySelector(".get-start-time").textContent
+        let end_content = theclosestFlex.querySelector(".get-start-end").textContent
+
+        const startvalue = convertTo24HourFormat(start_content)
+        const endvalue = convertTo24HourFormat(end_content)
 
         document.getElementById("items").value = task_content;
-        document.getElementById("time-start").value = start_content;
-        document.getElementById("time-end").value = end_content;
+        document.getElementById("time-start").value = startvalue;
+        document.getElementById("time-end").value = endvalue;
         clearInterval(taskCountdownTimer);
         theclosestFlex.remove();
     }
@@ -348,12 +397,54 @@ function Edit_Task(theclosestFlex) {
 
 
 
+function convertTo12HourFormat(inputTime) {
+    const [hours, minutes] = inputTime.split(':');
+    let ampm = 'AM';
+    let hours12 = Number(hours);
+    if (hours12 >= 12) {
+        ampm = 'PM';
+    }
+    if (hours12 > 12) {
+        hours12 -= 12;
+    }
+    return hours12.toString().padStart(2, '0') + ':' + minutes + ' ' + ampm;
+}
+
+
+function convertTo24HourFormat(inputTime) {
+    const [timePart, ampm] = inputTime.split(' ');
+    const [hoursStr, minutes] = timePart.split(':');
+    let hours = Number(hoursStr);
+
+    if (ampm === 'PM' && hours < 12) {
+        hours += 12; // Adding 12 to convert PM to 24-hour format
+    } else if (ampm === 'AM' && hours === 12) {
+        hours = 0; // Special case for 12:00 AM (midnight)
+    }
+
+    return hours.toString().padStart(2, '0') + ':' + minutes;
+}
+
+
+
+
+
 function approvedformat() {
+    console.log(Timestart.value, "  ", TimeEnd.value);
+    const t = new Date(`2000-01-01T${Timestart.value}`).getTime()
+    const m = new Date(`2000-01-01T${TimeEnd.value}`).getTime()
+
+    console.log(t, "  ", m)
+
+    // Timestart.value = "08:30"
+    // TimeEnd.value = "13:30"
+
+
     let TimeStartValid = validateTimeInput(Timestart, errormess);
     let TimeEndValid = validateTimeInput(TimeEnd, errormess);
-    let timeformatvalid = timeformat()
 
-    if (Task.value && Timestart.value && TimeEnd.value && TimeStartValid && TimeEndValid && timeformatvalid) {
+
+    if (Task.value && Timestart.value && TimeEnd.value && TimeStartValid && TimeEndValid) {
         create();
     }
     else {
