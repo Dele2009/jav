@@ -358,9 +358,11 @@ function deletetask(theclosestFlex) {
 function Check_Task_Done(theclosestFlex) {
     let thetask = theclosestFlex.querySelector(".flex .task");
     let done = theclosestFlex.getElementsByClassName("timp-up");
+    let editBtn = theclosestFlex.querySelector(".fa-circle-check")
     let taskCountdownTimer = countdownTimers[theclosestFlex.dataset.index];
     clearInterval(taskCountdownTimer);
-
+    
+    editBtn.classList.add('action-btn');
     done[0].textContent = "Completed";
     done[1].textContent = "Task completed";
     thetask.style.textDecoration = "line-through";
