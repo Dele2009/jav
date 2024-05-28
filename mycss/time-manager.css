@@ -275,6 +275,11 @@ body {
 .noshow{
     display: none;
 }
+.action-btn{
+    opacity: 0.8 !important;
+    cursor: not-allowed !important;
+    pointer-events: none !important;
+}
 @media (max-width:1300px) {
     .main-content {
         width: 70%;
